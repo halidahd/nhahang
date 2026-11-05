@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viet Soul Bremen — Interactive Visual Food Showcase</title>
+  <meta name="description" content="Viet Soul Bremen – Das interaktive Genussmagazin. Entdecken Sie hochauflösende Food-Stories, Live-Filter für Phở, Sushi & Wok sowie eine smarte Merkliste am Waller Freihafen.">
+  
+  <!-- Google Fonts: Syne + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS - INTERACTIVE VISUAL SHOWCASE
+       ========================================================================== */
+    :root {
+      --bg-deep: #060d17;
+      --bg-surface: #0b1526;
+      --bg-card: #111e36;
+      --bg-card-hover: #182847;
+      
+      --accent-flame: #f59e0b;
+      --accent-coral: #f97316;
+      --accent-mint: #10b981;
+      --accent-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #f97316 100%);
+      
+      --text-pure: #ffffff;
+      --text-soft: #e2e8f0;
+      --text-muted: #94a3b8;
+      
+      --border-light: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(245, 158, 11, 0.4);
+      
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      
+      --shadow-visual: 0 14px 40px rgba(0, 0, 0, 0.55);
+      --transition-spring: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-soft);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 80% 15%, rgba(245, 158, 11, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 20% 60%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-spring);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Headings & Badges */
+    .font-syne { font-family: var(--font-display); }
+    
+    .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .mag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-flame);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-pure);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      line-height: 1.65;
+    }
+
+    /* Buttons */
+    .btn-mag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 30px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      background: var(--accent-gradient);
+      color: #060d17;
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+      transition: var(--transition-spring);
+    }
+    .btn-mag:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-light);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .mag-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(6, 13, 23, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 0;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mag-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #060d17;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+    .brand-title-wrap h1 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .brand-title-wrap span {
+      font-size: 0.72rem;
+      color: var(--accent-flame);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .mag-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .mag-nav a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      position: relative;
+    }
+    .mag-nav a:hover {
+      color: var(--accent-flame);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Merkliste Wishlist Floating Button */
+    .wishlist-pill-btn {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-spring);
+    }
+    .wishlist-pill-btn:hover {
+      border-color: var(--accent-flame);
+      transform: translateY(-2px);
+    }
+    .wishlist-count-badge {
+      background: var(--accent-coral);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       HERO MAGAZINE COVER SECTION
+       ========================================================================== */
+    .mag-hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-editorial h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      line-height: 1.1;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 22px;
+      letter-spacing: -0.02em;
+    }
+    .hero-editorial p {
+      font-size: 1.15rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 34px;
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-visual);
+      border: 1px solid var(--border-light);
+    }
+    .hero-visual-card img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.6s ease;
+    }
+    .hero-visual-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .hero-card-tag {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(6, 13, 23, 0.85);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hero-card-tag h4 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: #fff;
+    }
+    .hero-card-tag span {
+      font-size: 0.85rem;
+      color: var(--accent-flame);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       ÜBER UNS (MAGAZINE STORY)
+       ========================================================================== */
+    .mag-about {
+      padding: 90px 0;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .story-mosaic img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .story-mosaic img:first-child {
+      grid-column: span 2;
+      height: 260px;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE SHOWCASE MENU & FILTERS
+       ========================================================================== */
+    .showcase-section {
+      padding: 100px 0;
+    }
+
+    .showcase-control-bar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Live Search Input */
+    .search-box-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--bg-deep);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-pill);
+      padding: 10px 20px;
+      max-width: 440px;
+    }
+    .search-box-wrap i {
+      color: var(--accent-flame);
+    }
+    .search-input {
+      background: none;
+      border: none;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      width: 100%;
+    }
+    .search-input:focus {
+      outline: none;
+    }
+
+    /* Category Filter Tabs */
+    .filter-tabs-track {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+    .filter-tabs-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-soft);
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition-spring);
+    }
+    .filter-btn:hover {
+      border-color: var(--accent-flame);
+      color: #fff;
+    }
+    .filter-btn.active {
+      background: var(--accent-gradient);
+      color: #060d17;
+      border-color: var(--accent-flame);
+      font-weight: 700;
+    }
+
+    /* Food Magazine Grid */
+    .food-magazine-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .food-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-spring);
+      position: relative;
+    }
+    .food-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-visual);
+    }
+
+    .food-img-wrap {
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .food-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .food-card:hover .food-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .food-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(6, 13, 23, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-flame);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .food-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .food-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .food-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .food-price {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent-flame);
+      white-space: nowrap;
+    }
+
+    .food-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .food-card-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-light);
+      padding-top: 14px;
+    }
+
+    .btn-quick-view {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-flame);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+    }
+    .btn-quick-view:hover {
+      text-decoration: underline;
+    }
+
+    .btn-add-wishlist {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-light);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-spring);
+    }
+    .btn-add-wishlist:hover, .btn-add-wishlist.active {
+      background: var(--accent-coral);
+      border-color: var(--accent-coral);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* ==========================================================================
+       MODAL QUICK VIEW (FOOD DETAILS & ALLERGENS)
+       ========================================================================== */
+    .quickview-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(6, 13, 23, 0.92);
+      backdrop-filter: blur(14px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .quickview-modal.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      max-width: 820px;
+      width: 100%;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      animation: modalPop 0.3s ease;
+    }
+    @keyframes modalPop {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-img-col {
+      height: 100%;
+      min-height: 380px;
+    }
+    .modal-img-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-info-col {
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border-light);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    /* ==========================================================================
+       DRAWER: MEINE MERKLISTE (TEMPORARY SELECTION)
+       ========================================================================== */
+    .wishlist-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      height: 100vh;
+      background: var(--bg-surface);
+      border-left: 1px solid var(--border-light);
+      z-index: 2500;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+      transition: right 0.35s ease;
+    }
+    .wishlist-drawer.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .drawer-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    .drawer-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drawer-item-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .drawer-item-price {
+      font-size: 0.95rem;
+      color: var(--accent-flame);
+      font-weight: 700;
+    }
+
+    .drawer-footer {
+      border-top: 1px solid var(--border-light);
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    /* ==========================================================================
+       UNSERE SPEZIALITÄTEN
+       ========================================================================== */
+    .showcase-specials {
+      padding: 90px 0;
+      background: var(--bg-surface);
+    }
+
+    .specials-featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    /* ==========================================================================
+       GALERIE & INSTA-FEED
+       ========================================================================== */
+    .showcase-gallery {
+      padding: 90px 0;
+    }
+
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    .insta-box {
+      height: 180px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
+    .insta-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .insta-box:hover img {
+      transform: scale(1.1);
+    }
+
+    /* ==========================================================================
+       RESERVIERUNG & KONTAKT
+       ========================================================================== */
+    .showcase-booking {
+      padding: 90px 0;
+      background: var(--bg-surface);
+    }
+    .booking-grid-mag {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .showcase-contact {
+      padding: 90px 0;
+    }
+
+    /* Footer */
+    .mag-footer {
+      border-top: 1px solid var(--border-light);
+      padding: 60px 0 30px 0;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-split, .story-grid, .specials-featured-grid, .booking-grid-mag {
+        grid-template-columns: 1fr;
+      }
+      .food-magazine-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .insta-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .modal-card {
+        grid-template-columns: 1fr;
+      }
+      .modal-img-col {
+        height: 220px;
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      .mag-nav {
+        display: none;
+      }
+      .section-title {
+        font-size: 1.85rem;
+      }
+      .section-desc {
+        font-size: 0.95rem;
+      }
+      .hero-editorial h2 {
+        font-size: 2.1rem;
+        word-break: break-word;
+      }
+      .hero-card-tag {
+        position: static;
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 16px;
+      }
+      .hero-visual-card img {
+        height: 320px;
+      }
+      .showcase-control-bar {
+        padding: 16px 14px;
+        gap: 14px;
+      }
+      .search-box-wrap {
+        max-width: 100%;
+        width: 100%;
+      }
+      .filter-tabs-track {
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .food-magazine-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .food-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .food-title {
+        font-size: 1.15rem;
+      }
+      .food-price {
+        font-size: 1.25rem;
+        align-self: flex-start;
+      }
+      .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .insta-box {
+        height: 140px;
+      }
+      .wishlist-drawer {
+        width: 100%;
+        right: -100%;
+      }
+      .showcase-contact .container {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       MAGAZINE HEADER
+       ======================================================================== -->
+  <header class="mag-header">
+    <div class="container header-content">
+      <div class="mag-brand">
+        <div class="brand-logo-circle">VS</div>
+        <div class="brand-title-wrap">
+          <h1>VIET SOUL</h1>
+          <span>Bremen • Visual Dining</span>
+        </div>
+      </div>
+
+      <ul class="mag-nav">
+        <li><a href="#home">Cover</a></li>
+        <li><a href="#about">Story</a></li>
+        <li><a href="#speisekarte">Food Guide</a></li>
+        <li><a href="#spezialitaeten">Spezialitäten</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#reservierung">Reservierung</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <!-- Wishlist / Merkliste Button -->
+        <button class="wishlist-pill-btn" onclick="toggleDrawer()" aria-label="Merkliste öffnen">
+          <i class="fa-solid fa-heart" style="color: var(--accent-coral);"></i>
+          <span>Merkliste</span>
+          <span class="wishlist-count-badge" id="wishlistCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         HERO COVER SECTION
+         ====================================================================== -->
+    <section class="mag-hero" id="home">
+      <div class="container">
+        <div class="hero-split">
+          <div class="hero-editorial">
+            <span class="mag-badge"><i class="fa-solid fa-fire"></i> Das Food-Magazin von Viet Soul</span>
+            <h2>Ein Fest für die Augen. <span class="gradient-text">Ein Genuss für die Seele.</span></h2>
+            <p>
+              Entdecken Sie Bremens aufregendste Symbiose aus traditioneller vietnamesischer Straßenküche, duftenden Kräutern und moderner Sushi-Ästhetik.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <a href="#speisekarte" class="btn-mag"><i class="fa-solid fa-compass"></i> Speisekarte filtern</a>
+              <a href="#reservierung" class="btn-ghost"><i class="fa-regular fa-calendar"></i> Tisch buchen</a>
+            </div>
+          </div>
+
+          <div class="hero-visual-card">
+            <img src="menu/28.jpg" alt="Viet Soul Hauptspeisen">
+            <div class="hero-card-tag">
+              <div>
+                <h4>Viet Soul Hauptspeisen</h4>
+                <span>Traditionell & Modern interpretiert</span>
+              </div>
+              <strong style="color: #fff; font-size: 1.2rem;">Am Waller Freihafen</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STORY / ABOUT
+         ====================================================================== -->
+    <section class="mag-about" id="about">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-mosaic">
+            <img src="menu/1.jpg" alt="Sushi Handwerk">
+            <img src="menu/30.jpg" alt="Phở Suppe">
+            <img src="menu/20.jpg" alt="Grillteller">
+          </div>
+
+          <div>
+            <span class="mag-badge">Die kulinarische Story</span>
+            <h2 class="section-title">Geschmack, der Geschichten erzählt</h2>
+            <p class="section-desc" style="margin-bottom: 24px;">
+              Hinter jedem Teller bei Viet Soul stehen frischeste Zutaten und authentische Handwerkskunst. Wir importieren duftenden Zimt und Sternanis direkt für unsere legendäre Phở-Brühe und kombinieren sie mit frischem Bremer Marktgemüse.
+            </p>
+            <p class="section-desc">
+              Unsere Sushi-Meister bereiten jedes Nigiri und jede Special Roll mit Hingabe und Präzision zu — ein Erlebnis, das man sehen und schmecken muss.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         INTERACTIVE FOOD SHOWCASE & FILTER
+         ====================================================================== -->
+    <section class="showcase-section" id="speisekarte">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <span class="mag-badge"><i class="fa-solid fa-sliders"></i> Interaktive Speisekarte</span>
+          <h2 class="section-title">Entdecke alle 30 Spezialitäten</h2>
+          <p class="section-desc" style="margin: 0 auto;">
+            Nutze die Filter oder das Suchfeld, um Gerichte nach Kategorie, Geschmack oder Ernährungsweise zu filtern.
+          </p>
+        </div>
+
+        <!-- Controls: Live Search & Filter Tabs -->
+        <div class="showcase-control-bar">
+          <div class="search-box-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="dishSearch" class="search-input" placeholder="Gericht oder Zutat suchen (z. B. Phở, Lachs, Curry)..." onkeyup="filterDishes()">
+          </div>
+
+          <div class="filter-tabs-track">
+            <button class="filter-btn active" data-filter="all" onclick="setCategoryFilter('all', this)">Alle Gerichte</button>
+            <button class="filter-btn" data-filter="vorspeisen" onclick="setCategoryFilter('vorspeisen', this)">Vorspeisen</button>
+            <button class="filter-btn" data-filter="pho" onclick="setCategoryFilter('pho', this)">Phở Suppen</button>
+            <button class="filter-btn" data-filter="bun" onclick="setCategoryFilter('bun', this)">Bún Reisnudeln</button>
+            <button class="filter-btn" data-filter="reis" onclick="setCategoryFilter('reis', this)">Reis & Curry</button>
+            <button class="filter-btn" data-filter="wok" onclick="setCategoryFilter('wok', this)">Wok & Grill</button>
+            <button class="filter-btn" data-filter="sushi" onclick="setCategoryFilter('sushi', this)">Sushi Sets</button>
+            <button class="filter-btn" data-filter="drinks" onclick="setCategoryFilter('drinks', this)">Getränke</button>
+          </div>
+        </div>
+
+        <!-- Dish Grid -->
+        <div class="food-magazine-grid" id="foodGrid">
+          
+          <!-- Item 1: Phở Bò -->
+          <div class="food-card" data-category="pho" data-name="pho bo chin rinderbruehe reisbandnudeln" data-price="14,50 €" data-img="menu/30.jpg" data-allergens="Keine" data-desc="Traditionelle Reisbandnudelsuppe in 24h aromatischer Rinderknochenbrühe mit Zimt, Sternanis, Ingwer und Kräutern.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/30.jpg" alt="Phở Bò Chín" loading="lazy">
+              <span class="food-badge">Nationalgericht</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">18C. Phở Bò Chín</h3>
+                <span class="food-price">14,50 €</span>
+              </div>
+              <p class="food-desc">Zart gekochte Rindfleischscheiben, breite Reisbandnudeln, Kräuter & Frühlingszwiebeln.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('18C. Phở Bò Chín', '14,50 €', this)" aria-label="Merken"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Phở Bò Áp Chảo -->
+          <div class="food-card" data-category="pho" data-name="pho bo ap chao gebraten medium" data-price="16,00 €" data-img="menu/30.jpg" data-allergens="F (Soja)" data-desc="Kurz scharf angebratenes Rindersteak (medium) mit frischem Knoblauch und Gemüse auf dampfenden Reisbandnudeln.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/30.jpg" alt="Phở Bò Áp Chảo" loading="lazy">
+              <span class="food-badge">Wok Gebraten</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">18D. Phở Bò Áp Chảo</h3>
+                <span class="food-price">16,00 €</span>
+              </div>
+              <p class="food-desc">Scharf angebratenes Rinderhüftsteak mit Knoblauch und aromatischem Gemüse.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('18D. Phở Bò Áp Chảo', '16,00 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Bún Bò Nam Bộ -->
+          <div class="food-card" data-category="bun" data-name="bun bo nam bo reisnudeln rindfleisch ananas" data-price="16,00 €" data-img="menu/30.jpg" data-allergens="B, D, J, M" data-desc="Gegrilltes Rindfleisch mit Zitronengras und Ananas auf frischen Reisnudeln, Salat, Kräutern, Erdnüssen und Limetten-Dip.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/30.jpg" alt="Bún Bò Nam Bộ" loading="lazy">
+              <span class="food-badge">Frisch & Knackig</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">19C. Bún Bò Nam Bộ</h3>
+                <span class="food-price">16,00 €</span>
+              </div>
+              <p class="food-desc">Zitronengras-Rindfleisch auf Reisnudeln, buntem Salat, Erdnüssen & Röstzwiebeln.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('19C. Bún Bò Nam Bộ', '16,00 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Bún Chả Cá -->
+          <div class="food-card" data-category="bun" data-name="bun cha ca fischfrikadellen dill suppe" data-price="17,00 €" data-img="menu/30.jpg" data-allergens="C, M" data-desc="Herzhafte Fischfrikadellensuppe mit hausgemachten Fischfrikadellen, Dill, Tomaten und Lauch mit angenehmer leichter Säure.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/30.jpg" alt="Bún Chả Cá" loading="lazy">
+              <span class="food-badge">Küstenspezialität</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">20. Bún Chả Cá Hải Phòng</h3>
+                <span class="food-price">17,00 €</span>
+              </div>
+              <p class="food-desc">Hausgemachte Fischfrikadellen, Dill, Lauch und Tomaten in feiner aromatischer Brühe.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('20. Bún Chả Cá', '17,00 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Nem Sài Gòn -->
+          <div class="food-card" data-category="vorspeisen" data-name="nem sai gon fruehlingsrollen vorspeisen" data-price="6,50 €" data-img="menu/27.jpg" data-allergens="A, M" data-desc="2 Stück hausgemachte Frühlingsrollen mit Glasnudeln, Morcheln, Hackfleisch und Chili-Dip.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/27.jpg" alt="Nem Sài Gòn" loading="lazy">
+              <span class="food-badge">Warm & Kross</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">2. Nem Sài Gòn</h3>
+                <span class="food-price">6,50 €</span>
+              </div>
+              <p class="food-desc">2 hausgemachte krosse Frühlingsrollen, serviert mit Chili-Dip.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('2. Nem Sài Gòn', '6,50 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Nem Gỏi Cuốn -->
+          <div class="food-card" data-category="vorspeisen" data-name="nem goi cuon sommerrollen garnelen salat" data-price="6,50 €" data-img="menu/27.jpg" data-allergens="A, B, E, L" data-desc="2 frische Sommerrollen in Reispapier mit Garnelen, zartem Huhn, Salat, Kräutern und Erdnuss-Dip.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/27.jpg" alt="Nem Gỏi Cuốn" loading="lazy">
+              <span class="food-badge">Frisch</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">3. Nem Gỏi Cuốn</h3>
+                <span class="food-price">6,50 €</span>
+              </div>
+              <p class="food-desc">Frische Sommerrollen mit Garnelen, Kräutern und aromatischem Erdnuss-Dip.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('3. Nem Gỏi Cuốn', '6,50 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 7: Bò Nướng Teriyaki -->
+          <div class="food-card" data-category="wok" data-name="bo nuong teriyaki grill steak suesskartoffel" data-price="19,00 €" data-img="menu/20.jpg" data-allergens="D, I, L" data-desc="Saftig gegrillte Rindsteaks auf heißer Gusseisenplatte mit Teriyaki-Sauce und knusprigen Süßkartoffelpommes.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/20.jpg" alt="Bò Nướng Teriyaki" loading="lazy">
+              <span class="food-badge">Heißer Grill</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">54. Bò Nướng Teriyaki</h3>
+                <span class="food-price">19,00 €</span>
+              </div>
+              <p class="food-desc">Gegrillte Rindersteaks auf zischender Platte mit Teriyaki-Sauce & Pommes.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('54. Bò Nướng', '19,00 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 8: Tôm Nướng -->
+          <div class="food-card" data-category="wok" data-name="tom nuong garnelen grill meeresfruechte" data-price="18,50 €" data-img="menu/20.jpg" data-allergens="G, J, L" data-desc="Gegrillte Großgarnelen mit Schale, serviert mit Salat, feiner Würzsauce und Duftreis oder Süßkartoffelpommes.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/20.jpg" alt="Tôm Nướng" loading="lazy">
+              <span class="food-badge">Garnelen</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">53. Tôm Nướng Großgarnelen</h3>
+                <span class="food-price">18,50 €</span>
+              </div>
+              <p class="food-desc">Gegrillte Großgarnelen auf heißer Platte mit feiner Würzsauce.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('53. Tôm Nướng', '18,50 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 9: Erdnuss-Curry Ente -->
+          <div class="food-card" data-category="reis" data-name="erdnuss curry ente kross reis" data-price="16,00 €" data-img="menu/24.jpg" data-allergens="B, D, I, M" data-desc="Knusprige Ente kross auf cremiger Erdnuss-Kokos-Sauce mit Röstzwiebeln, Paprika und Jasminreis.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/24.jpg" alt="Erdnuss-Curry Ente" loading="lazy">
+              <span class="food-badge">Cremig-Nussig</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">24F. Erdnuss-Curry Ente</h3>
+                <span class="food-price">16,00 €</span>
+              </div>
+              <p class="food-desc">Knusprig gebratene Ente auf aromatischer Erdnuss-Sauce mit Duftreis.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('24F. Erdnuss-Curry Ente', '16,00 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 10: Sushi Set 10 -->
+          <div class="food-card" data-category="sushi" data-name="sushi set 10 crunchy salmon tiger roll nigiri" data-price="29,00 €" data-img="menu/1.jpg" data-allergens="C, D, G, L" data-desc="10 Stk. Crunchy Salmon, 8 Stk. Tiger Roll, 3 Stk. Nigiri (Lachs, Maguro Thunfisch, Ebi Garnele).">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/1.jpg" alt="Sushi Set 10" loading="lazy">
+              <span class="food-badge">Sushi Favorit</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">Sushi Set 10 (21 Stk.)</h3>
+                <span class="food-price">29,00 €</span>
+              </div>
+              <p class="food-desc">Crunchy Salmon, Tiger Roll und frisches Nigiri-Trio meisterhaft arrangiert.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('Sushi Set 10', '29,00 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 11: Special Viet's Tiger Roll -->
+          <div class="food-card" data-category="sushi" data-name="tiger roll sushi special viet lachs mango" data-price="15,00 €" data-img="menu/5.jpg" data-allergens="C, D, G, L" data-desc="Panierte Garnelen, Mango, Avocado und Frischkäse, außen umhüllt von flambiertem Feuerlachs und Special Sauce.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/5.jpg" alt="Tiger Roll" loading="lazy">
+              <span class="food-badge">Chef Roll</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">S72. Tiger Roll (8 Stk.)</h3>
+                <span class="food-price">15,00 €</span>
+              </div>
+              <p class="food-desc">Tempura-Garnelen, Mango, Frischkäse & flambierter Feuerlachs.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('S72. Tiger Roll', '15,00 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 12: Cà Phê Sữa Đá -->
+          <div class="food-card" data-category="drinks" data-name="ca phe sua da kaffee kondensmilch getraenke" data-price="6,50 €" data-img="menu/4.jpg" data-allergens="G (Milch)" data-desc="Klassischer vietnamesischer Tropffilterkaffee serviert auf süßer Kondensmilch und gestoßenem Eis.">
+            <div class="food-img-wrap" onclick="openQuickView(this.parentElement)">
+              <img src="menu/4.jpg" alt="Cà Phê Sữa Đá" loading="lazy">
+              <span class="food-badge">Kaffee-Kult</span>
+            </div>
+            <div class="food-card-body">
+              <div class="food-title-row">
+                <h3 class="food-title">241. Cà Phê Sữa Đá</h3>
+                <span class="food-price">6,50 €</span>
+              </div>
+              <p class="food-desc">Echter vietnamesischer Filterkaffee mit Kondensmilch und Eis.</p>
+              <div class="food-card-actions">
+                <button class="btn-quick-view" onclick="openQuickView(this.closest('.food-card'))"><i class="fa-regular fa-eye"></i> Details</button>
+                <button class="btn-add-wishlist" onclick="toggleWishlistItem('241. Cà Phê Sữa Đá', '6,50 €', this)"><i class="fa-regular fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         MODAL QUICK VIEW
+         ====================================================================== -->
+    <div class="quickview-modal" id="quickViewModal" onclick="closeQuickView(event)">
+      <div class="modal-card">
+        <button class="modal-close-btn" onclick="closeQuickView(event)">&times;</button>
+        <div class="modal-img-col">
+          <img src="" id="modalImg" alt="Gericht Ansicht">
+        </div>
+        <div class="modal-info-col">
+          <div>
+            <span class="mag-badge" id="modalCategory">Spezialität</span>
+            <h3 class="section-title" id="modalTitle" style="font-size: 1.8rem; margin: 8px 0;">Titel</h3>
+            <span class="food-price" id="modalPrice" style="font-size: 1.6rem; display: block; margin-bottom: 16px;">0,00 €</span>
+            <p id="modalDesc" style="color: var(--text-soft); line-height: 1.6; margin-bottom: 20px;">Beschreibung</p>
+            <div style="background: rgba(255,255,255,0.04); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+              <small style="color: var(--accent-flame); font-weight: 700; display: block; margin-bottom: 4px;">ALLERGENE & ZUSATZSTOFFE (EU LMIV):</small>
+              <span id="modalAllergens" style="font-size: 0.82rem; color: var(--text-muted);">Keine Angabe</span>
+            </div>
+          </div>
+          <div style="margin-top: 24px;">
+            <button class="btn-mag" id="modalAddBtn" style="width: 100%;"><i class="fa-solid fa-heart"></i> Zur Merkliste hinzufügen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         WISHLIST DRAWER (MEINE MERKLISTE)
+         ====================================================================== -->
+    <aside class="wishlist-drawer" id="wishlistDrawer">
+      <div class="drawer-header">
+        <h3>Meine Merkliste</h3>
+        <button onclick="toggleDrawer()" style="background:none; border:none; color:#fff; font-size:1.3rem; cursor:pointer;">&times;</button>
+      </div>
+      <div class="drawer-list" id="drawerList">
+        <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-top: 40px;">Deine Merkliste ist noch leer. Klicke auf das Herz-Symbol bei deinen Lieblingsgerichten!</p>
+      </div>
+      <div class="drawer-footer">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 16px; font-weight: 700;">
+          <span>Gesamt (Richtwert):</span>
+          <span id="drawerTotal" style="color: var(--accent-flame); font-size: 1.2rem;">0,00 €</span>
+        </div>
+        <a href="#reservierung" class="btn-mag" style="width: 100%; text-align: center;" onclick="toggleDrawer()">Tisch mit Vorauswahl reservieren</a>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         UNSERE SPEZIALITÄTEN
+         ====================================================================== -->
+    <section class="showcase-specials" id="spezialitaeten">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <span class="mag-badge">Kaiserliche Runden</span>
+          <h2 class="section-title">Unsere Spezialitäten</h2>
+          <p class="section-desc" style="margin: 0 auto;">Perfekt für gemeinsame Genussmomente am Tisch.</p>
+        </div>
+
+        <div class="specials-featured-grid">
+          <div class="food-card">
+            <div class="food-img-wrap">
+              <img src="menu/16.jpg" alt="Lẩu Hotpot">
+              <span class="food-badge">Feuertopf</span>
+            </div>
+            <div class="food-card-body">
+              <h3 class="food-title">41. Lẩu Bò Hotpot</h3>
+              <p class="food-desc">Traditionelles Rindfleischfondue mit kräftiger Brühe, frischem Gemüse und Nudeln am Tisch gekocht.</p>
+              <div class="food-card-actions">
+                <span class="food-price">28,00 €</span>
+                <a href="#reservierung" class="btn-quick-view">Jetzt anfragen &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="food-card">
+            <div class="food-img-wrap">
+              <img src="menu/8.jpg" alt="Sushi Schiff">
+              <span class="food-badge">Grand Selection</span>
+            </div>
+            <div class="food-card-body">
+              <h3 class="food-title">Set 13. Große Sushi Platte</h3>
+              <p class="food-desc">Reichhaltige Auswahl mit Crunchy Salmon, Tiger Roll, Ebi Tempura und frischem Nigiri-Mix.</p>
+              <div class="food-card-actions">
+                <span class="food-price">50,00 €</span>
+                <a href="#reservierung" class="btn-quick-view">Jetzt anfragen &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="food-card">
+            <div class="food-img-wrap">
+              <img src="menu/20.jpg" alt="Grill Spezial">
+              <span class="food-badge">Grillteller</span>
+            </div>
+            <div class="food-card-body">
+              <h3 class="food-title">Viet Soul Grillplatte</h3>
+              <p class="food-desc">Heiß zischende Steaks und Garnelen auf der Gusseisenplatte mit Teriyaki-Sauce.</p>
+              <div class="food-card-actions">
+                <span class="food-price">19,00 €</span>
+                <a href="#reservierung" class="btn-quick-view">Jetzt anfragen &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         GALERIE
+         ====================================================================== -->
+    <section class="showcase-gallery" id="galerie">
+      <div class="container">
+        <span class="mag-badge">Visuelle Galerie</span>
+        <h2 class="section-title">Impressionen aus dem Restaurant</h2>
+        <p class="section-desc" style="margin-bottom: 30px;">Authentische Einblicke in unsere vietnamesische Küche und Sushi-Bar.</p>
+
+        <div class="insta-grid">
+          <div class="insta-box"><img src="menu/1.jpg" alt="Sushi"></div>
+          <div class="insta-box"><img src="menu/2.jpg" alt="Drinks"></div>
+          <div class="insta-box"><img src="menu/3.jpg" alt="Smoothies"></div>
+          <div class="insta-box"><img src="menu/4.jpg" alt="Kaffee"></div>
+          <div class="insta-box"><img src="menu/5.jpg" alt="Rollen"></div>
+          <div class="insta-box"><img src="menu/6.jpg" alt="Erfrischungen"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         RESERVIERUNG
+         ====================================================================== -->
+    <section class="showcase-booking" id="reservierung">
+      <div class="container">
+        <div class="booking-grid-mag">
+          <div>
+            <span class="mag-badge">Tisch Sichern</span>
+            <h2 class="section-title">Erleben Sie Viet Soul live</h2>
+            <p class="section-desc">
+              Reservieren Sie jetzt online. Wir bereiten Ihren Tisch am Waller Freihafen mit größter Sorgfalt vor.
+            </p>
+            <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+              <p><i class="fa-solid fa-phone" style="color: var(--accent-flame); margin-right: 8px;"></i> Telefon: 0421 79 30 180</p>
+              <p><i class="fa-solid fa-envelope" style="color: var(--accent-flame); margin-right: 8px;"></i> E-Mail: info@elagastro.de</p>
+              <p><i class="fa-solid fa-location-dot" style="color: var(--accent-flame); margin-right: 8px;"></i> Am Waller Freihafen 1, 28217 Bremen</p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 36px;">
+            <form onsubmit="event.preventDefault(); alert('Vielen Dank! Ihre Reservierungsanfrage wurde übermittelt.');">
+              <div style="display: flex; flex-direction: column; gap: 16px;">
+                <input type="text" placeholder="Ihr Name" required style="background: var(--bg-deep); border: 1px solid var(--border-light); color: #fff; padding: 12px 16px; border-radius: var(--radius-sm);">
+                <input type="email" placeholder="Ihre E-Mail-Adresse" required style="background: var(--bg-deep); border: 1px solid var(--border-light); color: #fff; padding: 12px 16px; border-radius: var(--radius-sm);">
+                <input type="tel" placeholder="Telefonnummer" required style="background: var(--bg-deep); border: 1px solid var(--border-light); color: #fff; padding: 12px 16px; border-radius: var(--radius-sm);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                  <select style="background: var(--bg-deep); border: 1px solid var(--border-light); color: #fff; padding: 12px 16px; border-radius: var(--radius-sm);">
+                    <option>2 Personen</option>
+                    <option>3 Personen</option>
+                    <option>4 Personen</option>
+                    <option>5+ Personen</option>
+                  </select>
+                  <input type="time" value="19:00" style="background: var(--bg-deep); border: 1px solid var(--border-light); color: #fff; padding: 12px 16px; border-radius: var(--radius-sm);">
+                </div>
+                <button type="submit" class="btn-mag" style="width: 100%;">Tisch verbindlich reservieren</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         KONTAKT
+         ====================================================================== -->
+    <section class="showcase-contact" id="kontakt">
+      <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+        <div>
+          <span class="mag-badge">Standort & Anfahrt</span>
+          <h2 class="section-title">Anreise nach Bremen</h2>
+          <p class="section-desc" style="margin-bottom: 20px;">
+            Am Waller Freihafen 1, 28217 Bremen. Parkplätze direkt vor dem Haus.
+          </p>
+          <p style="color: var(--text-soft);">
+            <strong>Öffnungszeiten:</strong><br>
+            Mo – Fr: 11:30 – 15:00 Uhr & 17:30 – 22:30 Uhr<br>
+            Sa, So & Feiertage: 12:00 – 23:00 Uhr
+          </p>
+        </div>
+
+        <div style="height: 380px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-light);">
+          <iframe 
+            title="Google Maps"
+            src="https://maps.google.com/maps?q=Am%20Waller%20Freihafen%201,%2028217%20Bremen&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            style="width: 100%; height: 100%; border: none; filter: invert(90%) hue-rotate(180deg);" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="mag-footer">
+    <div class="container">
+      <p>&copy; 2026 Viet Soul Restaurant (Viet Gastro Bremen). Alle Rechte vorbehalten.</p>
+      <p style="margin-top: 6px; font-size: 0.8rem;">Am Waller Freihafen 1, 28217 Bremen • Impressum • Datenschutzerklärung • Allergenhinweise nach EU LMIV</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       JAVASCRIPT INTERACTIONS (SEARCH, FILTER, QUICKVIEW, WISHLIST)
+       ======================================================================== -->
+  <script>
+    // Live Category Filter
+    let currentCategory = 'all';
+
+    function setCategoryFilter(category, btnElement) {
+      currentCategory = category;
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+      filterDishes();
+    }
+
+    function filterDishes() {
+      const searchVal = document.getElementById('dishSearch').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.food-card');
+
+      cards.forEach(card => {
+        const itemCategory = card.getAttribute('data-category');
+        const itemName = card.getAttribute('data-name');
+
+        const matchesCat = (currentCategory === 'all' || itemCategory === currentCategory);
+        const matchesSearch = itemName.includes(searchVal);
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal Quick View
+    const modal = document.getElementById('quickViewModal');
+    let currentModalDish = {};
+
+    function openQuickView(card) {
+      const title = card.querySelector('.food-title').innerText;
+      const price = card.getAttribute('data-price');
+      const img = card.getAttribute('data-img');
+      const desc = card.getAttribute('data-desc');
+      const allergens = card.getAttribute('data-allergens');
+      const cat = card.getAttribute('data-category');
+
+      currentModalDish = { title, price };
+
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('modalImg').src = img;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('modalAllergens').innerText = allergens;
+      document.getElementById('modalCategory').innerText = cat.toUpperCase();
+
+      document.getElementById('modalAddBtn').onclick = () => {
+        toggleWishlistItem(title, price);
+        closeQuickView();
+      };
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuickView(e) {
+      if (!e || e.target === modal || e.target.classList.contains('modal-close-btn')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Wishlist Drawer & Items
+    let wishlist = [];
+
+    function toggleWishlistItem(title, price, btn) {
+      const existingIdx = wishlist.findIndex(item => item.title === title);
+      if (existingIdx > -1) {
+        wishlist.splice(existingIdx, 1);
+        if (btn) btn.classList.remove('active');
+      } else {
+        wishlist.push({ title, price });
+        if (btn) btn.classList.add('active');
+      }
+      updateWishlistUI();
+    }
+
+    function updateWishlistUI() {
+      document.getElementById('wishlistCount').innerText = wishlist.length;
+      const drawerList = document.getElementById('drawerList');
+
+      if (wishlist.length === 0) {
+        drawerList.innerHTML = `<p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-top: 40px;">Deine Merkliste ist noch leer.</p>`;
+        document.getElementById('drawerTotal').innerText = '0,00 €';
+        return;
+      }
+
+      let total = 0;
+      drawerList.innerHTML = '';
+
+      wishlist.forEach((item, index) => {
+        const priceNum = parseFloat(item.price.replace(' €', '').replace(',', '.'));
+        if (!isNaN(priceNum)) total += priceNum;
+
+        const div = document.createElement('div');
+        div.className = 'drawer-item';
+        div.innerHTML = `
+          <div>
+            <div class="drawer-item-title">${item.title}</div>
+            <div class="drawer-item-price">${item.price}</div>
+          </div>
+          <button onclick="removeFromWishlist(${index})" style="background:none; border:none; color: #ef4444; cursor:pointer;"><i class="fa-solid fa-trash-can"></i></button>
+        `;
+        drawerList.appendChild(div);
+      });
+
+      document.getElementById('drawerTotal').innerText = total.toFixed(2).replace('.', ',') + ' €';
+    }
+
+    function removeFromWishlist(index) {
+      wishlist.splice(index, 1);
+      updateWishlistUI();
+    }
+
+    function toggleDrawer() {
+      const drawer = document.getElementById('wishlistDrawer');
+      drawer.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

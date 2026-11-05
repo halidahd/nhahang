@@ -1,0 +1,2368 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viet Soul Bremen | Feine Vietnamesische Küche & Sushi Kunst</title>
+  <meta name="description" content="Viet Soul Bremen – Erleben Sie traditionelle vietnamesische Spezialitäten und meisterhaftes Sushi in stilvollem Fine-Dining-Ambiente. Am Waller Freihafen 1, Bremen.">
+  
+  <!-- Google Fonts: Playfair Display + Karla -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS - LUXURY & FINE DINING
+       ========================================================================== */
+    :root {
+      --bg-midnight: #070e18;
+      --bg-navy-deep: #0b1728;
+      --bg-navy-card: #0f1f35;
+      --bg-navy-elevated: #152845;
+      
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dark: #997a15;
+      --gold-gradient: linear-gradient(135deg, #f5e7b2 0%, #d4af37 50%, #9e7d23 100%);
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      
+      --text-ivory: #fcfbf9;
+      --text-creme: #e8e2d5;
+      --text-muted: #8fa0b5;
+      
+      --border-gold-subtle: rgba(212, 175, 55, 0.2);
+      --border-gold-glow: rgba(212, 175, 55, 0.45);
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-luxury: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.08);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-midnight);
+      color: var(--text-creme);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(26, 47, 80, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(212, 175, 55, 0.05) 0%, transparent 35%);
+      background-attachment: fixed;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography Utilities */
+    .font-serif { font-family: var(--font-serif); }
+    .gold-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+      font-weight: 600;
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+    .section-tag::before, .section-tag::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold-gradient);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      color: var(--text-ivory);
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 50px auto;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 32px;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #08101d;
+      border: 1px solid var(--gold-primary);
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45);
+      filter: brightness(1.08);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-light);
+      border: 1px solid var(--border-gold-subtle);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.08);
+      color: var(--text-ivory);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 22px 0;
+      transition: var(--transition-smooth);
+      background: rgba(7, 14, 24, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .site-header.scrolled {
+      padding: 14px 0;
+      background: rgba(7, 14, 24, 0.97);
+      border-bottom-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-emblem {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: radial-gradient(circle, #1a2f50 0%, #0b1728 100%);
+    }
+    .brand-emblem::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+    }
+    .brand-emblem span {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+    }
+    .brand-text h1 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      letter-spacing: 0.15em;
+      color: var(--text-ivory);
+      line-height: 1;
+    }
+    .brand-text p {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-creme);
+      position: relative;
+      padding: 6px 0;
+      font-weight: 500;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold-gradient);
+      transition: var(--transition-smooth);
+    }
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 60px;
+      overflow: hidden;
+    }
+
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(to bottom, rgba(7, 14, 24, 0.75) 0%, rgba(11, 23, 40, 0.92) 100%),
+        url('menu/28.jpg') center/cover no-repeat;
+      filter: saturate(0.85);
+      z-index: -2;
+      transform: scale(1.05);
+      animation: heroZoom 24s ease infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      0% { transform: scale(1.05); }
+      100% { transform: scale(1.15); }
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border: 1px solid var(--border-gold-glow);
+      background: rgba(15, 31, 53, 0.65);
+      backdrop-filter: blur(8px);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 26px;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+      line-height: 1.15;
+      color: var(--text-ivory);
+      margin-bottom: 24px;
+      font-weight: 700;
+      word-break: break-word;
+    }
+    .hero-title span {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text-creme);
+      max-width: 720px;
+      margin: 0 auto 38px auto;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border-gold-subtle);
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat-item h3 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .stat-item p {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       ÜBER UNS (ABOUT)
+       ========================================================================== */
+    .about-section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-image-wrapper {
+      position: relative;
+    }
+
+    .about-image-main {
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+    }
+    .about-image-main img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .about-image-main:hover img {
+      transform: scale(1.04);
+    }
+
+    .about-image-badge {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      background: var(--bg-navy-elevated);
+      border: 1px solid var(--gold-primary);
+      padding: 24px 30px;
+      border-radius: 4px;
+      text-align: center;
+      box-shadow: var(--shadow-luxury);
+    }
+    .about-image-badge i {
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .about-image-badge span {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--text-ivory);
+      display: block;
+    }
+
+    .about-content .section-tag {
+      justify-content: flex-start;
+    }
+    .about-content .section-tag::after {
+      display: none;
+    }
+    .about-content .section-title {
+      text-align: left;
+    }
+
+    .about-text {
+      color: var(--text-creme);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      line-height: 1.85;
+    }
+
+    .about-features {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--bg-navy-card);
+      border: 1px solid var(--border-gold-subtle);
+      padding: 20px;
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+    }
+    .feature-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+    }
+    .feature-card i {
+      font-size: 1.4rem;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+    }
+    .feature-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--text-ivory);
+      margin-bottom: 6px;
+    }
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SPEISEKARTE (MAIN MENU)
+       ========================================================================== */
+    .menu-section {
+      padding: 120px 0;
+      background: linear-gradient(180deg, var(--bg-midnight) 0%, #0a1525 50%, var(--bg-midnight) 100%);
+      position: relative;
+    }
+
+    /* Menu Navigation Tabs */
+    .menu-nav-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .menu-tab-btn {
+      background: var(--bg-navy-card);
+      border: 1px solid var(--border-gold-subtle);
+      color: var(--text-creme);
+      padding: 12px 24px;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .menu-tab-btn i {
+      color: var(--gold-primary);
+      font-size: 0.9rem;
+    }
+    .menu-tab-btn:hover {
+      border-color: var(--gold-primary);
+      background: var(--bg-navy-elevated);
+      color: var(--gold-light);
+    }
+    .menu-tab-btn.active {
+      background: var(--gold-gradient);
+      color: #08101d;
+      border-color: var(--gold-primary);
+      font-weight: 700;
+    }
+    .menu-tab-btn.active i {
+      color: #08101d;
+    }
+
+    /* Submenu Categories */
+    .menu-category-panel {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+    .menu-category-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-category-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .menu-category-header h3 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .menu-category-header p {
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+
+    .menu-items-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    /* Fine Dining Menu Item */
+    .menu-item {
+      background: var(--bg-navy-card);
+      border: 1px solid var(--border-gold-subtle);
+      padding: 24px;
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      gap: 20px;
+    }
+    .menu-item:hover {
+      border-color: var(--border-gold-glow);
+      background: var(--bg-navy-elevated);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .menu-item-thumb {
+      width: 100px;
+      height: 100px;
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid var(--border-gold-subtle);
+    }
+    .menu-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .menu-item:hover .menu-item-thumb img {
+      transform: scale(1.08);
+    }
+
+    .menu-item-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .menu-item-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .item-title {
+      font-family: var(--font-serif);
+      font-size: 1.18rem;
+      color: var(--text-ivory);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .item-badge {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+    }
+
+    .item-price {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      white-space: nowrap;
+    }
+
+    .item-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .item-allergens {
+      font-size: 0.75rem;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       UNSERE SPEZIALITÄTEN (CHEF'S HIGHLIGHTS)
+       ========================================================================== */
+    .specialties-section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .specialties-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .specialty-card {
+      background: var(--bg-navy-card);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+    }
+    .specialty-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px var(--gold-glow);
+    }
+
+    .specialty-image {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+    }
+    .specialty-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .specialty-card:hover .specialty-image img {
+      transform: scale(1.08);
+    }
+
+    .specialty-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--gold-gradient);
+      color: #08101d;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+    }
+
+    .specialty-content {
+      padding: 28px;
+    }
+    .specialty-content h4 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--text-ivory);
+      margin-bottom: 8px;
+    }
+    .specialty-content p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .specialty-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-gold-subtle);
+      padding-top: 16px;
+    }
+    .specialty-footer .price {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+    }
+
+    /* ==========================================================================
+       GALERIE (IMAGE SHOWCASE)
+       ========================================================================== */
+    .gallery-section {
+      padding: 120px 0;
+      background: var(--bg-navy-deep);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 260px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold-subtle);
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7, 14, 24, 0.9) 0%, rgba(7, 14, 24, 0.3) 100%);
+      opacity: 0;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-overlay h5 {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .gallery-overlay span {
+      font-size: 0.8rem;
+      color: var(--text-creme);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(4, 8, 14, 0.95);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 900px;
+      max-height: 85vh;
+      border: 1px solid var(--gold-primary);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      display: block;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      color: var(--gold-light);
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* ==========================================================================
+       RESERVIERUNG (TABLE RESERVATION)
+       ========================================================================== */
+    .reservation-section {
+      padding: 120px 0;
+      position: relative;
+      background: linear-gradient(180deg, var(--bg-midnight) 0%, #0c1a2e 100%);
+    }
+
+    .reservation-card {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--bg-navy-card);
+      border: 1px solid var(--border-gold-glow);
+      box-shadow: var(--shadow-luxury);
+      border-radius: 6px;
+      padding: 50px 60px;
+      position: relative;
+    }
+    .reservation-card::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      pointer-events: none;
+    }
+
+    .reservation-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .form-control {
+      background: rgba(7, 14, 24, 0.8);
+      border: 1px solid var(--border-gold-subtle);
+      color: var(--text-ivory);
+      padding: 14px 18px;
+      border-radius: 2px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+    select.form-control option {
+      background: #0b1728;
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       KONTAKT & ANFAHRT
+       ========================================================================== */
+    .contact-section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--gold-primary);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-primary);
+      font-size: 1.25rem;
+      background: var(--bg-navy-card);
+      flex-shrink: 0;
+    }
+    .contact-text h5 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--text-ivory);
+      margin-bottom: 4px;
+    }
+    .contact-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .map-container {
+      height: 440px;
+      border: 1px solid var(--border-gold-glow);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+      background: #0d1b2a;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: invert(90%) hue-rotate(180deg) contrast(1.1);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: #040810;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 70px 0 30px 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a:hover {
+      color: var(--gold-primary);
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .menu-items-grid {
+        grid-template-columns: 1fr;
+      }
+      .specialties-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      .section-title {
+        font-size: 1.85rem;
+      }
+      .section-subtitle {
+        font-size: 0.92rem;
+        margin-bottom: 30px;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(7, 14, 24, 0.98);
+        flex-direction: column;
+        padding: 30px 24px;
+        border-bottom: 1px solid var(--gold-primary);
+        gap: 20px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .nav-cta .btn {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .hero-desc {
+        font-size: 0.95rem;
+      }
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-top: 24px;
+      }
+      .about-grid {
+        gap: 30px;
+      }
+      .about-image-main img {
+        height: 320px;
+      }
+      .about-image-badge {
+        position: static;
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 14px 20px;
+      }
+      .about-image-badge i {
+        margin-bottom: 0;
+      }
+      .about-features {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      /* Menu Controls on Mobile */
+      .menu-nav-wrapper {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 14px;
+        margin-bottom: 28px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .menu-nav-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+      .menu-tab-btn {
+        flex-shrink: 0;
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+
+      /* Menu Items on Mobile */
+      .menu-items-grid {
+        gap: 16px;
+      }
+      .menu-item {
+        flex-direction: column;
+        padding: 16px;
+        gap: 14px;
+      }
+      .menu-item-thumb {
+        width: 100%;
+        height: 180px;
+      }
+      .menu-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .item-title {
+        font-size: 1.15rem;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .item-price {
+        font-size: 1.25rem;
+        align-self: flex-start;
+        color: var(--gold-light);
+      }
+      .item-desc {
+        font-size: 0.88rem;
+      }
+
+      .specialties-grid {
+        grid-template-columns: 1fr;
+      }
+      .specialty-image {
+        height: 220px;
+      }
+      .reservation-card {
+        padding: 24px 16px;
+      }
+      .reservation-form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .map-container {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       HEADER
+       ======================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#home" class="brand-logo" aria-label="Viet Soul Home">
+        <div class="brand-emblem">
+          <span>VS</span>
+        </div>
+        <div class="brand-text">
+          <h1>VIET SOUL</h1>
+          <p>Bremen • Fine Dining</p>
+        </div>
+      </a>
+
+      <!-- Desktop & Mobile Nav Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Über Uns</a></li>
+        <li><a href="#speisekarte">Speisekarte</a></li>
+        <li><a href="#spezialitaeten">Spezialitäten</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#reservierung">Reservierung</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#reservierung" class="btn btn-gold"><i class="fa-regular fa-calendar-check"></i> Tisch reservieren</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         HERO SECTION
+         ====================================================================== -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-particles"></div>
+      
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-crown"></i> Vietnamesische Haute Cuisine & Sushi Bar
+        </div>
+        <h2 class="hero-title">
+          Harmonie der Sinne,
+          <span class="gold-text">Tradition in Vollendung.</span>
+        </h2>
+        <p class="hero-desc">
+          Willkommen im Viet Soul Bremen. Genießen Sie die unverfälschte Tiefe vietnamesischer Aromen, meisterhafte Brühen nach Generationenrezept und handgefertigtes Sushi von erlesener Frische am Waller Freihafen.
+        </p>
+        
+        <div class="hero-actions">
+          <a href="#reservierung" class="btn btn-gold"><i class="fa-solid fa-utensils"></i> Tisch reservieren</a>
+          <a href="#speisekarte" class="btn btn-outline"><i class="fa-regular fa-compass"></i> Speisekarte entdecken</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Frische Zutaten</p>
+          </div>
+          <div class="stat-item">
+            <h3>24h</h3>
+            <p>Aromatischer Phở-Sud</p>
+          </div>
+          <div class="stat-item">
+            <h3>28217</h3>
+            <p>Bremen Freihafen</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ÜBER UNS
+         ====================================================================== -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image-wrapper">
+            <div class="about-image-main">
+              <img src="menu/28.jpg" alt="Viet Soul Köstlichkeiten" loading="lazy" onerror="this.src='menu/1.jpg'">
+            </div>
+            <div class="about-image-badge">
+              <i class="fa-solid fa-award"></i>
+              <span>Authentisch & Edel</span>
+              <small style="color: var(--gold-primary);">Viet Gastro Bremen</small>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <span class="section-tag">Philosophie & Handwerk</span>
+            <h2 class="section-title">Kulinarische Reise zwischen Hanoi und Bremen</h2>
+            <p class="about-text">
+              Im Herzen von Bremen verbindet das Viet Soul traditionsreiche vietnamesische Kochkunst mit moderner europäischer Gastlichkeit. Unsere Küchenmeister zelebrieren die Balance der fünf Elemente: Schärfe, Süße, Säure, Salzigkeit und Umami.
+            </p>
+            <p class="about-text">
+              Jedes Gericht wird frisch à la minute zubereitet – von der 24 Stunden langsam gesiedeten aromatischen Rinderknochenbrühe unseres klassischen Phở bis hin zu kunstvoll arrangierten Sushi-Kreationen aus zertifiziert nachhaltigem Fischfang.
+            </p>
+
+            <div class="about-features">
+              <div class="feature-card">
+                <i class="fa-solid fa-leaf"></i>
+                <h4>Frischeste Kräuter</h4>
+                <p>Thailändischer Basilikum, Koriander & Minze direkt für Sie verlesen.</p>
+              </div>
+              <div class="feature-card">
+                <i class="fa-solid fa-fish"></i>
+                <h4>Sushi Meisterschaft</h4>
+                <p>Feinster Lachs, Thunfisch & Black Tiger Garnelen in Perfektion gerollt.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SPEISEKARTE
+         ====================================================================== -->
+    <section class="menu-section" id="speisekarte">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="section-tag">Auszug aus unserer Karte</span>
+          <h2 class="section-title">Unsere Erlesene Speisekarte</h2>
+          <p class="section-subtitle">
+            Entdecken Sie die Vielfalt vietnamesischer Spezialitäten und japanischer Delikatessen, zusammengestellt nach unserem Original-Menü.
+          </p>
+        </div>
+
+        <!-- Navigation Tabs for Submenus -->
+        <div class="menu-nav-wrapper">
+          <button class="menu-tab-btn active" data-target="vorspeisen"><i class="fa-solid fa-bowl-food"></i> Vorspeisen</button>
+          <button class="menu-tab-btn" data-target="pho"><i class="fa-solid fa-bowl-rice"></i> Phở</button>
+          <button class="menu-tab-btn" data-target="bun"><i class="fa-solid fa-wheat-awn"></i> Bún</button>
+          <button class="menu-tab-btn" data-target="reisgerichte"><i class="fa-solid fa-plate-wheat"></i> Reisgerichte</button>
+          <button class="menu-tab-btn" data-target="wokgrill"><i class="fa-solid fa-fire-burner"></i> Wok & Grill</button>
+          <button class="menu-tab-btn" data-target="sushi"><i class="fa-solid fa-fish-fins"></i> Sushi</button>
+          <button class="menu-tab-btn" data-target="getraenke"><i class="fa-solid fa-wine-glass"></i> Getränke</button>
+        </div>
+
+        <!-- Tab 1: Vorspeisen -->
+        <div class="menu-category-panel active" id="vorspeisen">
+          <div class="menu-category-header">
+            <h3>Vorspeisen & Suppen</h3>
+            <p>Feine Eröffnungen für den Gaumen – knusprig, frisch und aromatisch</p>
+          </div>
+          <div class="menu-items-grid">
+            <!-- 1. Mini Frühlingsrollen -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/27.jpg" alt="Mini Frühlingsrollen" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">1. Mini Frühlingsrollen <span class="item-badge">Vegetarisch</span></h4>
+                  <span class="item-price">3,00 €</span>
+                </div>
+                <p class="item-desc">6 Stück knusprige vegetarische Frühlingsrollen, serviert mit süß-scharfem Sweet-Chili-Dip.</p>
+                <span class="item-allergens">Allergene: A (Gluten), F (Soja)</span>
+              </div>
+            </div>
+
+            <!-- 2. Nem Sài Gòn -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/27.jpg" alt="Nem Sài Gòn" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">2. Nem Sài Gòn (Warm) <span class="item-badge">Hausklassiker</span></h4>
+                  <span class="item-price">6,50 €</span>
+                </div>
+                <p class="item-desc">2 hausgemachte Frühlingsrollen gefüllt mit Glasnudeln, Gemüse, Morcheln und wahlweise Tofu oder Schweinehackfleisch, serviert mit Chili-Limetten-Dip.</p>
+                <span class="item-allergens">Allergene: A, M</span>
+              </div>
+            </div>
+
+            <!-- 3. Nem Gỏi Cuốn -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/27.jpg" alt="Nem Gỏi Cuốn Sommerrollen" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">3. Nem Gỏi Cuốn (Kalt)</h4>
+                  <span class="item-price">6,50 €</span>
+                </div>
+                <p class="item-desc">2 frische vietnamesische Sommerrollen in Reispapier mit frischem Salat, Gurken, Minze, Reisnudeln und gerösteten Erdnüssen. Mit Garnelen & Hähnchen oder Bio-Tofu.</p>
+                <span class="item-allergens">Allergene: A, B, E, L, M</span>
+              </div>
+            </div>
+
+            <!-- 4. Crispy Garnelen -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/27.jpg" alt="Crispy Garnelen" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">4. Crispy Garnelen Tempura</h4>
+                  <span class="item-price">7,00 €</span>
+                </div>
+                <p class="item-desc">3 Stück Garnelen im goldgelben Tempurateig gebacken, serviert mit cremiger Cocktail-Sauce und Salatbeilage.</p>
+                <span class="item-allergens">Allergene: A, C, D1, E, O</span>
+              </div>
+            </div>
+
+            <!-- 12. Sup Coconut -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/26.jpg" alt="Sup Coconut" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">12. Sup Coconut Lemongrass</h4>
+                  <span class="item-price">8,00 €</span>
+                </div>
+                <p class="item-desc">Cremige Kokosmilchsuppe mit Champignons, Tomaten, Bambus, Galgant und frischen Kräutern. Wahlweise mit Bio-Tofu (8,00 €), Hähnchen (8,00 €) oder Garnelen (9,00 €).</p>
+                <span class="item-allergens">Allergene: G, M</span>
+              </div>
+            </div>
+
+            <!-- 13. Sup Wantan -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/26.jpg" alt="Sup Wantan" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">13. Sup Wantan Hausgemacht</h4>
+                  <span class="item-price">8,00 €</span>
+                </div>
+                <p class="item-desc">Hausgemachte Teigtaschen gefüllt mit gewürztem Hähnchenbrustfilet, Gemüse und Röstzwiebeln in einer herzhaften klaren Brühe.</p>
+                <span class="item-allergens">Allergene: D1, M</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Phở -->
+        <div class="menu-category-panel" id="pho">
+          <div class="menu-category-header">
+            <h3>Phở – Das Nationalgericht Vietnams</h3>
+            <p>Traditionelle Reisbandnudelsuppe in 24h schonend gekochter aromatischer Brühe mit Zimt, Sternanis, Ingwer und frischen Kräutern</p>
+          </div>
+          <div class="menu-items-grid">
+            <!-- Pho Bo -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Phở Bò" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">18C. Phở Bò Chín <span class="item-badge">Bestseller</span></h4>
+                  <span class="item-price">14,50 €</span>
+                </div>
+                <p class="item-desc">Zart gekochte Rindfleischscheiben, breite Reisbandnudeln, Frühlingszwiebeln, frischer Koriander und Sojasprossen in kräftiger Rinderknochenbrühe.</p>
+                <span class="item-allergens">Allergene: Keine kennzeichnungspflichtigen Allergene</span>
+              </div>
+            </div>
+
+            <!-- Pho Bo Ap Chao -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Phở Bò Áp Chảo" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">18D. Phở Bò Áp Chảo</h4>
+                  <span class="item-price">16,00 €</span>
+                </div>
+                <p class="item-desc">Kurz scharf angebratenes Rinderhüftsteak (medium) mit Knoblauch, verfeinert mit Saisongemüse und aromatischen Kräutern auf Reisbandnudelsuppe.</p>
+                <span class="item-allergens">Allergene: F (Soja)</span>
+              </div>
+            </div>
+
+            <!-- Pho Dac Biet -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Phở Đặc Biệt" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">18E. Phở Đặc Biệt Soul <span class="item-badge">Chef's Special</span></h4>
+                  <span class="item-price">17,00 €</span>
+                </div>
+                <p class="item-desc">Große Festtagssuppe mit einer Kombination aus zart gekochtem Rindfleisch, gebratenem Rindersteak und Rindbällchen.</p>
+                <span class="item-allergens">Allergene: F</span>
+              </div>
+            </div>
+
+            <!-- Pho Ga -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Phở Gà" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">18B. Phở Gà Traditionell</h4>
+                  <span class="item-price">13,50 €</span>
+                </div>
+                <p class="item-desc">Zartes Hühnerbrustfilet in aromatischer Geflügelbrühe mit Limettenblättern, Koriander, frischem Ingwer und Sojasprossen.</p>
+                <span class="item-allergens">Allergene: Keine</span>
+              </div>
+            </div>
+
+            <!-- Pho Vegan -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Phở Vegan" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">18F. Phở Chay Vegan <span class="item-badge">Vegan</span></h4>
+                  <span class="item-price">15,00 €</span>
+                </div>
+                <p class="item-desc">Mit mariniertem Bio-Tofu, Pilzen und Marktgemüse in einer reichhaltigen, rein pflanzlich gekochten Gewürzbrühe.</p>
+                <span class="item-allergens">Allergene: F (Soja)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Bún -->
+        <div class="menu-category-panel" id="bun">
+          <div class="menu-category-header">
+            <h3>Bún – Frische Reisnudelschalen</h3>
+            <p>Feine Reisnudeln mit buntem Salat, Kräutern, Röstzwiebeln, Erdnüssen und hausgemachtem Dressing</p>
+          </div>
+          <div class="menu-items-grid">
+            <!-- Bun Bo Nam Bo -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Bún Bò Nam Bộ" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">19C. Bún Bò Nam Bộ <span class="item-badge">Empfehlung</span></h4>
+                  <span class="item-price">16,00 €</span>
+                </div>
+                <p class="item-desc">Im Wok gegrilltes Rindfleisch mit Zitronengras und Ananas, serviert auf lauwarmen Reisnudeln mit Salat, Minze und Chili-Limetten-Dressing.</p>
+                <span class="item-allergens">Allergene: B, D, J, M</span>
+              </div>
+            </div>
+
+            <!-- Bun Nem -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Bún Nem" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">19B. Bún Nem Hà Nội</h4>
+                  <span class="item-price">15,00 €</span>
+                </div>
+                <p class="item-desc">Knusprig frittierte hausgemachte Frühlingsrollen mit Hackfleischfüllung auf Reisnudeln, frischen Kräutern und feinem Fischsauce-Dip.</p>
+                <span class="item-allergens">Allergene: B, D, J</span>
+              </div>
+            </div>
+
+            <!-- Bun Cha Ca -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Bún Chả Cá" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">20. Bún Chả Cá Hải Phòng</h4>
+                  <span class="item-price">17,00 €</span>
+                </div>
+                <p class="item-desc">Herzhafte Fischfrikadellensuppe mit hausgemachten Fischfrikadellen, frischem Dill, Tomaten und Lauch in einer angenehm leichten Säurebrühe.</p>
+                <span class="item-allergens">Allergene: C, M (Fisch, Senf)</span>
+              </div>
+            </div>
+
+            <!-- Bun Dau Xa Ot -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/30.jpg" alt="Bún Đậu Xả Ớt" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">19A. Bún Đậu Xả Ớt <span class="item-badge">Vegan</span></h4>
+                  <span class="item-price">14,00 €</span>
+                </div>
+                <p class="item-desc">Mit knusprig mariniertem Tofu, gebraten mit frischem Zitronengras und Chili, serviert mit veganer Soja-Limetten-Vinaigrette.</p>
+                <span class="item-allergens">Allergene: B, D, J</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Reisgerichte -->
+        <div class="menu-category-panel" id="reisgerichte">
+          <div class="menu-category-header">
+            <h3>Reisgerichte & Edle Currys</h3>
+            <p>Serviert mit feinstem Duftreis, frischem Gemüse und erlesenen Gewürzen</p>
+          </div>
+          <div class="menu-items-grid">
+            <!-- Erdnuss Curry -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/24.jpg" alt="Erdnuss Curry" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">24. Erdnuss-Curry Spezial <span class="item-badge">Klassiker</span></h4>
+                  <span class="item-price">15,50 €</span>
+                </div>
+                <p class="item-desc">Aromatische Erdnuss-Kokos-Sauce mit frischem Salat, Paprika, Röstzwiebeln und Jasminreis. Wahlweise mit knuspriger Hähnchenkeule (15,50 €) oder Ente Kross (16,00 €).</p>
+                <span class="item-allergens">Allergene: B, D, I, M</span>
+              </div>
+            </div>
+
+            <!-- Süsskartoffel Curry -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/24.jpg" alt="Süßkartoffel Curry" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">25. Süßkartoffel-Curry</h4>
+                  <span class="item-price">16,00 €</span>
+                </div>
+                <p class="item-desc">Mit zarten Süßkartoffelstücken, Saisongemüse in gelbem Kokos-Curry. Mit knuspriger Ente kross serviert.</p>
+                <span class="item-allergens">Allergene: B, D, I, M</span>
+              </div>
+            </div>
+
+            <!-- Gebratener Reis -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/29.jpg" alt="Gebratener Reis" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">30. Gebratener Duftreis Wok</h4>
+                  <span class="item-price">17,00 €</span>
+                </div>
+                <p class="item-desc">Mit Ei, Erbsen, Karotten, Sojasprossen, garniert mit frischen Kräutern und Röstzwiebeln. Mit Black Tiger Garnelen serviert.</p>
+                <span class="item-allergens">Allergene: A, D, I, M</span>
+              </div>
+            </div>
+
+            <!-- Knoblauch Ingwer Sauce -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/24.jpg" alt="Knoblauch Ingwer" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">26. Knoblauch-Ingwer Wok</h4>
+                  <span class="item-price">17,00 €</span>
+                </div>
+                <p class="item-desc">Verschiedenes Gemüse in dunkler, würziger Knoblauch-Ingwer-Sauce, serviert mit zartem Rindfleisch und Duftreis.</p>
+                <span class="item-allergens">Allergene: D, M</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: Wok & Grill -->
+        <div class="menu-category-panel" id="wokgrill">
+          <div class="menu-category-header">
+            <h3>Viet Soul Grill & Wok Gerichte</h3>
+            <p>Heiß dampfend auf der Gusseisenplatte oder knackig aus dem Wok serviert</p>
+          </div>
+          <div class="menu-items-grid">
+            <!-- Bo Nuong Grill -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/20.jpg" alt="Bò Nướng Grill" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">54. Bò Nướng Teriyaki <span class="item-badge">Chef's Cut</span></h4>
+                  <span class="item-price">19,00 €</span>
+                </div>
+                <p class="item-desc">Gegrillte Rindsteaks auf heißer Platte mit Salat, feiner Teriyaki-Sauce und wahlweise Süßkartoffelpommes oder Jasminreis.</p>
+                <span class="item-allergens">Allergene: D, I, L</span>
+              </div>
+            </div>
+
+            <!-- Tom Nuong -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/20.jpg" alt="Tôm Nướng" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">53. Tôm Nướng Grill</h4>
+                  <span class="item-price">18,50 €</span>
+                </div>
+                <p class="item-desc">Gegrillte Großgarnelen mit Schale, serviert mit marktfrischem Salat, hausgemachter Teriyaki-Sauce und Süßkartoffelpommes.</p>
+                <span class="item-allergens">Allergene: G, J, L</span>
+              </div>
+            </div>
+
+            <!-- Ca Nuong Lachs -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/20.jpg" alt="Cá Nướng Lachs" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">55. Cá Nướng Lachsfilet</h4>
+                  <span class="item-price">19,00 €</span>
+                </div>
+                <p class="item-desc">Gegrilltes norwegisches Lachsfilet mit Kräutern, Teriyaki-Sauce, dazu frischer Salat und Duftreis.</p>
+                <span class="item-allergens">Allergene: D, G, L</span>
+              </div>
+            </div>
+
+            <!-- Pho Xao -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/29.jpg" alt="Phở Xào" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">31. Phở Xào Nudeln</h4>
+                  <span class="item-price">16,00 €</span>
+                </div>
+                <p class="item-desc">Gebratene Reisbandnudeln mit Ei, Gemüse, Sojasprossen, Erdnüssen und krosser Ente.</p>
+                <span class="item-allergens">Allergene: A, B, D, I, M</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 6: Sushi -->
+        <div class="menu-category-panel" id="sushi">
+          <div class="menu-category-header">
+            <h3>Sushi Kunst & Thron-Sets</h3>
+            <p>Frischeste Meeresfrüchte, handgerollt von unseren Sushi-Meistern</p>
+          </div>
+          <div class="menu-items-grid">
+            <!-- Set 10 -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/1.jpg" alt="Sushi Set 10" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">Sushi Set 10 <span class="item-badge">Exklusiv</span></h4>
+                  <span class="item-price">29,00 €</span>
+                </div>
+                <p class="item-desc">10 Stk. Crunchy Salmon, 8 Stk. Tiger Roll, 3 Stk. Nigiri (Sake Lachs, Maguro Thunfisch, Ebi Garnele).</p>
+                <span class="item-allergens">Allergene: C, D, G, L</span>
+              </div>
+            </div>
+
+            <!-- Set 13 -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/8.jpg" alt="Sushi Set 13" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">Sushi Set 13 (Große Platte)</h4>
+                  <span class="item-price">50,00 €</span>
+                </div>
+                <p class="item-desc">10 Stk. Crunchy Salmon, 8 Stk. Ebi Tempura I.O., 8 Stk. Sake I.O., 8 Stk. Tiger Roll, 3 Stk. Nigiri Selection.</p>
+                <span class="item-allergens">Allergene: C, D, G, L</span>
+              </div>
+            </div>
+
+            <!-- Special Viet's Rolls -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/5.jpg" alt="Tiger Roll" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">S72. Tiger Roll (8 Stk.)</h4>
+                  <span class="item-price">15,00 €</span>
+                </div>
+                <p class="item-desc">Inside: panierte Garnelen, Mango, Avocado, Philadelphia. Outside: flambierter Feuerlachs, Special Viet Sauce.</p>
+                <span class="item-allergens">Allergene: C, D, G, L</span>
+              </div>
+            </div>
+
+            <!-- Green Dragon Roll -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/5.jpg" alt="Green Dragon Roll" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">S73. Green Dragon Roll</h4>
+                  <span class="item-price">15,00 €</span>
+                </div>
+                <p class="item-desc">Inside: panierte Garnelen, gegrillter Aal, Gurke, Frischkäse. Outside: cremiger Avocadomantel.</p>
+                <span class="item-allergens">Allergene: C, D, G, L</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 7: Getränke -->
+        <div class="menu-category-panel" id="getraenke">
+          <div class="menu-category-header">
+            <h3>Getränke & Cocktails</h3>
+            <p>Vietnamesischer Tropfkaffee, hausgemachte Erfrischungen und edle Weine</p>
+          </div>
+          <div class="menu-items-grid">
+            <!-- Ca Phe Sua Da -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/4.jpg" alt="Cà Phê Sữa Đá" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">241. Cà Phê Sữa Đá <span class="item-badge">Original</span></h4>
+                  <span class="item-price">6,50 €</span>
+                </div>
+                <p class="item-desc">Weltberühmter vietnamesischer Kaffeefilter mit gezuckerter Kondensmilch und Eiswürfeln serviert.</p>
+                <span class="item-allergens">Allergene: G (Milch)</span>
+              </div>
+            </div>
+
+            <!-- Viet Sour Cocktail -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/2.jpg" alt="Viet Sour Cocktail" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">275. Viet Sour Signature</h4>
+                  <span class="item-price">9,00 €</span>
+                </div>
+                <p class="item-desc">Reiswodka, frische Limette, Eiweiß, Orangenlikör und erfrischender Ananassaft.</p>
+                <span class="item-allergens">Allergene: C (Eiweiß)</span>
+              </div>
+            </div>
+
+            <!-- Grauburgunder -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/2.jpg" alt="Grauburgunder Wein" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">280. Grauburgunder Trocken</h4>
+                  <span class="item-price">6,50 € / 0,2l</span>
+                </div>
+                <p class="item-desc">Eleganter deutscher Weißwein, feine Fruchtnoten. Flasche 0,75l für 22,00 €.</p>
+                <span class="item-allergens">Allergene: O (Sulfite)</span>
+              </div>
+            </div>
+
+            <!-- Mango Lassi -->
+            <div class="menu-item">
+              <div class="menu-item-thumb">
+                <img src="menu/3.jpg" alt="Mango Lassi" loading="lazy">
+              </div>
+              <div class="menu-item-body">
+                <div class="menu-item-header">
+                  <h4 class="item-title">222. Mango Lassi Homemade</h4>
+                  <span class="item-price">6,50 €</span>
+                </div>
+                <p class="item-desc">Cremiges Püree aus sonnengereifter Honigmango mit Kokosmilch und Joghurt.</p>
+                <span class="item-allergens">Allergene: G (Milch)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         UNSERE SPEZIALITÄTEN
+         ====================================================================== -->
+    <section class="specialties-section" id="spezialitaeten">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="section-tag">Kulinarische Höhepunkte</span>
+          <h2 class="section-title">Unsere Spezialitäten des Hauses</h2>
+          <p class="section-subtitle">
+            Ausgewählte Festtagsgerichte für unvergessliche Momente und gemeinsame Genussrunden.
+          </p>
+        </div>
+
+        <div class="specialties-grid">
+          <!-- 1. Lau Bo Fondue -->
+          <div class="specialty-card">
+            <div class="specialty-image">
+              <img src="menu/16.jpg" alt="Lẩu Bò Fondue" loading="lazy">
+              <span class="specialty-badge">Feuertopf</span>
+            </div>
+            <div class="specialty-content">
+              <h4>41. Lẩu Bò – Vietnamesischer Hotpot</h4>
+              <p>Rindfleisch-Fondue mit kräftiger Rinderbrühe, zartem Rindfleisch, Rindbällchen, Sojasprossen, frischem Gemüse und Instantnudeln zum gemeinsamen Genießen.</p>
+              <div class="specialty-footer">
+                <span class="price">28,00 €</span>
+                <a href="#reservierung" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">Reservieren</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Lau Thap Cam -->
+          <div class="specialty-card">
+            <div class="specialty-image">
+              <img src="menu/16.jpg" alt="Lẩu Thập Cẩm" loading="lazy">
+              <span class="specialty-badge">Kaiserlich</span>
+            </div>
+            <div class="specialty-content">
+              <h4>43. Lẩu Thập Cẩm Deluxetopf</h4>
+              <p>Exklusives Fondue mit Rindfleisch, Meeresfrüchten, Bio-Tofu, Dumplings, Saisongemüse und feinen Nudeln am Tisch brodelnd serviert.</p>
+              <div class="specialty-footer">
+                <span class="price">30,00 €</span>
+                <a href="#reservierung" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">Reservieren</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Grosse Sushi Platte -->
+          <div class="specialty-card">
+            <div class="specialty-image">
+              <img src="menu/8.jpg" alt="Sushi Schiff Set 16" loading="lazy">
+              <span class="specialty-badge">Masterpiece</span>
+            </div>
+            <div class="specialty-content">
+              <h4>Set 16. Großes Kaiser-Sushi-Schiff</h4>
+              <p>Reichhaltigste Sushi-Kreation mit 6 Stk. Sake Maki, 6 Maguro Maki, 6 Avocado Maki, Tiger Roll, Rainbow Roll, Crunchy Salmon und frischem Sashimi Mix.</p>
+              <div class="specialty-footer">
+                <span class="price">86,00 €</span>
+                <a href="#reservierung" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">Reservieren</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         GALERIE
+         ====================================================================== -->
+    <section class="gallery-section" id="galerie">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="section-tag">Visuelle Impressionen</span>
+          <h2 class="section-title">Galerie & Impressionen</h2>
+          <p class="section-subtitle">
+            Ein Blick auf unsere meisterhaft angerichteten Köstlichkeiten. Klicken Sie auf ein Bild zur Vergrößerung.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox('menu/1.jpg')">
+            <img src="menu/1.jpg" alt="Sushi Sets" loading="lazy">
+            <div class="gallery-overlay">
+              <h5>Sushi Set Kreationen</h5>
+              <span>Japanische Meisterschaft</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('menu/30.jpg')">
+            <img src="menu/30.jpg" alt="Traditionelle Pho Suppe" loading="lazy">
+            <div class="gallery-overlay">
+              <h5>Phở Việt Nam & Bún</h5>
+              <span>24h Aromatischer Sud</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('menu/20.jpg')">
+            <img src="menu/20.jpg" alt="Grill Spezialitäten" loading="lazy">
+            <div class="gallery-overlay">
+              <h5>Viet Soul Grillplatte</h5>
+              <span>Heiß & Würzig</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('menu/2.jpg')">
+            <img src="menu/2.jpg" alt="Cocktails & Wein" loading="lazy">
+            <div class="gallery-overlay">
+              <h5>Cocktails & Weißwein</h5>
+              <span>Exotische Momente</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('menu/24.jpg')">
+            <img src="menu/24.jpg" alt="Curry Gerichte" loading="lazy">
+            <div class="gallery-overlay">
+              <h5>Erdnuss & Süßkartoffel Curry</h5>
+              <span>Cremig & Reichhaltig</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('menu/5.jpg')">
+            <img src="menu/5.jpg" alt="Special Rolls" loading="lazy">
+            <div class="gallery-overlay">
+              <h5>Special Viet's Rolls</h5>
+              <span>Tiger & Dragon Roll</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('menu/27.jpg')">
+            <img src="menu/27.jpg" alt="Vorspeisen" loading="lazy">
+            <div class="gallery-overlay">
+              <h5>Frische Sommer- & Frühlingsrollen</h5>
+              <span>Knusprig & Frisch</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('menu/29.jpg')">
+            <img src="menu/29.jpg" alt="Wok Spezialitäten" loading="lazy">
+            <div class="gallery-overlay">
+              <h5>Gebratener Reis & Nudeln</h5>
+              <span>Wok-Aromen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+      <div class="lightbox-content">
+        <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Schließen">&times;</button>
+        <img src="" id="lightboxImg" alt="Vergrößerte Ansicht">
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         RESERVIERUNG
+         ====================================================================== -->
+    <section class="reservation-section" id="reservierung">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="section-tag">Gastlichkeit Erleben</span>
+          <h2 class="section-title">Online Tischreservierung</h2>
+          <p class="section-subtitle">
+            Sichern Sie sich Ihren Tisch für einen genussvollen Abend. Wir bestätigen Ihre Reservierung umgehend per E-Mail oder SMS.
+          </p>
+        </div>
+
+        <div class="reservation-card">
+          <form id="reservationForm" onsubmit="handleReservation(event)">
+            <div class="reservation-form-grid">
+              <div class="form-group">
+                <label class="form-label" for="resName">Vollständiger Name *</label>
+                <input type="text" id="resName" class="form-control" placeholder="z. B. Dr. Johannes Weber" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="resEmail">E-Mail-Adresse *</label>
+                <input type="email" id="resEmail" class="form-control" placeholder="name@beispiel.de" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="resPhone">Telefonnummer *</label>
+                <input type="tel" id="resPhone" class="form-control" placeholder="+49 421 1234567" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="resGuests">Anzahl Personen *</label>
+                <select id="resGuests" class="form-control" required>
+                  <option value="2">2 Personen (Tisch)</option>
+                  <option value="1">1 Person</option>
+                  <option value="3">3 Personen</option>
+                  <option value="4">4 Personen</option>
+                  <option value="5">5 Personen</option>
+                  <option value="6">6 Personen</option>
+                  <option value="8">Größere Gruppe (7+ Personen)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="resDate">Datum *</label>
+                <input type="date" id="resDate" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="resTime">Uhrzeit *</label>
+                <select id="resTime" class="form-control" required>
+                  <option value="12:00">12:00 Uhr (Mittag)</option>
+                  <option value="12:30">12:30 Uhr</option>
+                  <option value="13:00">13:00 Uhr</option>
+                  <option value="17:30">17:30 Uhr (Abend)</option>
+                  <option value="18:00">18:00 Uhr</option>
+                  <option value="18:30">18:30 Uhr</option>
+                  <option value="19:00" selected>19:00 Uhr</option>
+                  <option value="19:30">19:30 Uhr</option>
+                  <option value="20:00">20:00 Uhr</option>
+                  <option value="20:30">20:30 Uhr</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="resNotes">Besondere Wünsche oder Unverträglichkeiten</label>
+                <textarea id="resNotes" rows="3" class="form-control" placeholder="z. B. Tisch am Fenster, Hochzeitstag, Glutenunverträglichkeit..."></textarea>
+              </div>
+
+              <div class="form-group full-width" style="margin-top: 10px; text-align: center;">
+                <button type="submit" class="btn btn-gold" style="width: 100%; max-width: 380px; margin: 0 auto;">
+                  <i class="fa-solid fa-check"></i> Reservierung verbindlich anfragen
+                </button>
+                <p id="reservationSuccess" style="display:none; color: var(--gold-light); margin-top: 15px; font-weight: 500;">
+                  <i class="fa-solid fa-circle-check"></i> Vielen Dank! Ihre Reservierungsanfrage für Bremen wurde erfolgreich übermittelt.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         KONTAKT & ANFAHRT
+         ====================================================================== -->
+    <section class="contact-section" id="kontakt">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <span class="section-tag">Anfahrt & Service</span>
+            <h2 class="section-title" style="text-align: left;">Wir freuen uns auf Ihren Besuch</h2>
+            <p class="about-text">
+              Das Viet Soul Restaurant empfängt Sie in modern-stilvollem Ambiente am Waller Freihafen in Bremen. Kostenfreie Parkmöglichkeiten stehen zur Verfügung.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="contact-text">
+                  <h5>Adresse</h5>
+                  <p>Am Waller Freihafen 1<br>28217 Bremen, Deutschland</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="contact-text">
+                  <h5>Öffnungszeiten</h5>
+                  <p>Mo – Fr: 11:30 – 15:00 Uhr & 17:30 – 22:30 Uhr<br>Sa, So & Feiertage: 12:00 – 23:00 Uhr durchgehend</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="contact-text">
+                  <h5>Telefon & Kontakt</h5>
+                  <p>Festnetz: +49 (0) 421 79 30 180<br>Mobil: +49 (0) 176 87309247<br>E-Mail: info@elagastro.de</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <!-- Google Maps Embed for Am Waller Freihafen 1, 28217 Bremen -->
+            <iframe 
+              title="Google Maps Standort Viet Soul Bremen"
+              src="https://maps.google.com/maps?q=Am%20Waller%20Freihafen%201,%2028217%20Bremen&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 18px;">
+            <div class="brand-emblem"><span>VS</span></div>
+            <div class="brand-text">
+              <h4 style="font-family: var(--font-serif); font-size: 1.25rem; color: #fff;">VIET SOUL</h4>
+              <p style="font-size: 0.7rem; color: var(--gold-primary);">Bremen • Fine Dining</p>
+            </div>
+          </div>
+          <p style="line-height: 1.7; font-size: 0.88rem; max-width: 320px;">
+            Erlesene vietnamesische Kochkunst trifft erstklassiges Sushi im Herzen von Bremen. Frische, Handwerk und unvergleichlicher Geschmack.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Über Uns</a></li>
+            <li><a href="#speisekarte">Speisekarte</a></li>
+            <li><a href="#spezialitaeten">Spezialitäten</a></li>
+            <li><a href="#reservierung">Tischreservierung</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Speisekarte</h5>
+          <ul class="footer-links">
+            <li><a href="#speisekarte">Traditionelles Phở</a></li>
+            <li><a href="#speisekarte">Bún Reisnudeln</a></li>
+            <li><a href="#speisekarte">Viet Soul Grill</a></li>
+            <li><a href="#speisekarte">Kaiser Sushi Sets</a></li>
+            <li><a href="#speisekarte">Heiße Hotpots</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Rechtliches (Deutschland)</h5>
+          <ul class="footer-links">
+            <li><a href="#kontakt">Impressum</a></li>
+            <li><a href="#kontakt">Datenschutzerklärung</a></li>
+            <li><a href="#kontakt">Allergen- & Zusatzstoffhinweise</a></li>
+            <li><a href="#kontakt">Cookie-Einstellungen</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Viet Soul Restaurant (Viet Gastro Bremen). Alle Rechte vorbehalten.</p>
+        <p>Design & Konzept: Senior Frontend & UI/UX Specialist • Bremen, Deutschland</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       JAVASCRIPT INTERACTIONS
+       ======================================================================== -->
+  <script>
+    // Header Scroll Effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = mobileMenuBtn.querySelector('i');
+      if (navLinks.classList.contains('active')) {
+        icon.classList.replace('fa-bars', 'fa-xmark');
+      } else {
+        icon.classList.replace('fa-xmark', 'fa-bars');
+      }
+    });
+
+    // Close mobile nav when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+      });
+    });
+
+    // Menu Submenu Tab Switching
+    const tabButtons = document.querySelectorAll('.menu-tab-btn');
+    const categoryPanels = document.querySelectorAll('.menu-category-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        
+        tabButtons.forEach(b => b.classList.remove('active'));
+        categoryPanels.forEach(p => p.classList.remove('active'));
+        
+        btn.classList.add('active');
+        const activePanel = document.getElementById(targetId);
+        if (activePanel) {
+          activePanel.classList.add('active');
+        }
+      });
+    });
+
+    // Lightbox Gallery Functions
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (e.target === lightboxModal || e.target.classList.contains('lightbox-close')) {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Reservation Form Handling
+    function handleReservation(e) {
+      e.preventDefault();
+      const successMsg = document.getElementById('reservationSuccess');
+      successMsg.style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('reservationForm').reset();
+      }, 3000);
+    }
+
+    // Default Date to Tomorrow for Reservation
+    const dateInput = document.getElementById('resDate');
+    if (dateInput) {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      dateInput.value = tomorrow.toISOString().split('T')[0];
+    }
+  </script>
+</body>
+</html>

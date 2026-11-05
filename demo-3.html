@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viet Soul Bremen — Gaststätte & Asiatisches Wirtshaus</title>
+  <meta name="description" content="Viet Soul Bremen – Rustikale Eleganz, meisterhafte vietnamesische Hausmannskost, frisches Sushi und erlesene Fassbiere. Gastlichkeit am Waller Freihafen in Bremen.">
+  
+  <!-- Google Fonts: Fraunces + Source Sans 3 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS - GERMAN GASTSTÄTTE / RUSTIC ELEGANCE
+       ========================================================================== */
+    :root {
+      --bg-dark-oak: #0c1522;
+      --bg-slate-navy: #132238;
+      --bg-tavern-card: #192d4a;
+      --bg-parchment: #fdfaf2;
+      --bg-parchment-sub: #f3ecdb;
+      
+      --amber-brass: #d97706;
+      --beer-gold: #f59e0b;
+      --warm-copper: #c2410c;
+      --brass-gradient: linear-gradient(135deg, #fcd34d 0%, #d97706 60%, #92400e 100%);
+      
+      --text-parchment: #fdfaf2;
+      --text-muted-wood: #94a3b8;
+      --text-dark-menu: #1e293b;
+      
+      --border-brass: rgba(217, 119, 6, 0.35);
+      --border-brass-solid: #d97706;
+      --border-dark: rgba(255, 255, 255, 0.08);
+      
+      --font-fraunces: 'Fraunces', Georgia, serif;
+      --font-sans: 'Source Sans 3', sans-serif;
+      
+      --shadow-tavern: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-dark-oak);
+      color: var(--text-parchment);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(217, 119, 6, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 10% 70%, rgba(19, 34, 56, 0.9) 0%, transparent 50%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Headings & Badges */
+    .font-tavern { font-family: var(--font-fraunces); }
+    
+    .tavern-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      border: 1px solid var(--border-brass);
+      background: rgba(217, 119, 6, 0.12);
+      color: var(--beer-gold);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-fraunces);
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .section-sub {
+      color: var(--text-muted-wood);
+      font-size: 1rem;
+      max-width: 640px;
+      margin: 0 auto 46px auto;
+      text-align: center;
+    }
+
+    /* Buttons */
+    .btn-tavern {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 28px;
+      background: var(--brass-gradient);
+      color: #0c1522;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 3px;
+      border: 1px solid var(--beer-gold);
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+      transition: all 0.25s ease;
+    }
+    .btn-tavern:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(217, 119, 6, 0.45);
+      filter: brightness(1.1);
+    }
+
+    .btn-wood {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--bg-tavern-card);
+      border: 1px solid var(--border-brass);
+      color: var(--text-parchment);
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .btn-wood:hover {
+      background: #233b61;
+      border-color: var(--beer-gold);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .tavern-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(12, 21, 34, 0.95);
+      border-bottom: 2px solid var(--amber-brass);
+      backdrop-filter: blur(8px);
+      padding: 16px 0;
+    }
+
+    .header-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tavern-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tavern-emblem {
+      width: 48px;
+      height: 48px;
+      border: 2px solid var(--beer-gold);
+      background: #172740;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--beer-gold);
+      font-size: 1.5rem;
+      border-radius: 4px;
+    }
+    .brand-title h1 {
+      font-family: var(--font-fraunces);
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .brand-title span {
+      font-size: 0.75rem;
+      color: var(--beer-gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .tavern-nav {
+      display: flex;
+      gap: 26px;
+      list-style: none;
+    }
+    .tavern-nav a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-parchment);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 0;
+      position: relative;
+    }
+    .tavern-nav a:hover {
+      color: var(--beer-gold);
+    }
+
+    /* ==========================================================================
+       HERO TAVERN BANNER
+       ========================================================================== */
+    .hero-tavern {
+      padding: 90px 0 70px 0;
+      background: 
+        linear-gradient(rgba(12, 21, 34, 0.88), rgba(12, 21, 34, 0.95)),
+        url('menu/20.jpg') center/cover no-repeat;
+      position: relative;
+      border-bottom: 1px solid var(--border-brass);
+    }
+
+    .hero-box {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-box h2 {
+      font-family: var(--font-fraunces);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.15;
+      font-weight: 800;
+      color: #fff;
+      margin: 18px 0;
+    }
+    .hero-box p {
+      font-size: 1.1rem;
+      color: var(--text-parchment);
+      margin-bottom: 34px;
+      line-height: 1.7;
+    }
+
+    /* Quality Stamp */
+    .stamp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      border: 2px dashed var(--beer-gold);
+      border-radius: 4px;
+      margin-top: 30px;
+      color: var(--beer-gold);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ==========================================================================
+       SPECIAL SECTION 1: BIERE VOM FASS & FLASCHENBIERE (GERMAN BEER TRADITION)
+       ========================================================================== */
+    .beer-section {
+      padding: 80px 0;
+      background: #0f1c2d;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .beer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .beer-card {
+      background: var(--bg-slate-navy);
+      border: 1px solid var(--border-brass);
+      border-radius: 4px;
+      padding: 30px;
+      position: relative;
+      box-shadow: var(--shadow-tavern);
+    }
+    .beer-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(217, 119, 6, 0.25);
+      padding-bottom: 14px;
+    }
+    .beer-card-header i {
+      font-size: 2rem;
+      color: var(--beer-gold);
+    }
+    .beer-card-header h3 {
+      font-family: var(--font-fraunces);
+      font-size: 1.45rem;
+      color: #fff;
+    }
+
+    .beer-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+    }
+    .beer-info h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-parchment);
+    }
+    .beer-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted-wood);
+    }
+    .beer-prices {
+      text-align: right;
+      font-family: var(--font-fraunces);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--beer-gold);
+      white-space: nowrap;
+    }
+    .beer-prices small {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted-wood);
+      font-family: var(--font-sans);
+    }
+
+    /* ==========================================================================
+       PARCHMENT WIRTSHAUS MENU (SPEISEKARTE GASTSTÄTTE)
+       ========================================================================== */
+    .menu-gaststaette-section {
+      padding: 100px 0;
+    }
+
+    /* Traditional Category Selectors */
+    .gaststaette-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .g-tab-btn {
+      background: var(--bg-slate-navy);
+      border: 1px solid var(--border-brass);
+      color: var(--text-parchment);
+      padding: 12px 22px;
+      border-radius: 3px;
+      font-family: var(--font-fraunces);
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+    .g-tab-btn:hover, .g-tab-btn.active {
+      background: var(--brass-gradient);
+      color: #0c1522;
+      border-color: var(--beer-gold);
+      font-weight: 700;
+    }
+
+    .g-menu-panel {
+      display: none;
+    }
+    .g-menu-panel.active {
+      display: block;
+    }
+
+    /* Parchment Board Style */
+    .parchment-board {
+      background: var(--bg-parchment);
+      color: var(--text-dark-menu);
+      border: 3px solid #854d0e;
+      border-radius: 4px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      position: relative;
+    }
+    .parchment-board::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid #b45309;
+      pointer-events: none;
+    }
+
+    .parchment-header {
+      text-align: center;
+      border-bottom: 2px solid #b45309;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    .parchment-header h3 {
+      font-family: var(--font-fraunces);
+      font-size: 2.1rem;
+      color: #78350f;
+    }
+    .parchment-header p {
+      font-style: italic;
+      color: #713f12;
+      font-size: 0.95rem;
+    }
+
+    .parchment-items-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px 40px;
+    }
+
+    .p-item {
+      display: flex;
+      gap: 16px;
+    }
+    .p-item-thumb {
+      width: 85px;
+      height: 85px;
+      border: 1px solid #b45309;
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .p-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .p-item-content {
+      flex: 1;
+    }
+    .p-item-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dotted #a16207;
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+    }
+    .p-item-title {
+      font-family: var(--font-fraunces);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #451a03;
+    }
+    .p-item-price {
+      font-family: var(--font-fraunces);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #b45309;
+      white-space: nowrap;
+    }
+    .p-item-desc {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       BEILAGEN (SIDE DISHES GERMAN STYLE)
+       ========================================================================== */
+    .beilagen-section {
+      padding: 60px 0;
+      background: #111e30;
+      border-top: 1px solid var(--border-brass);
+      border-bottom: 1px solid var(--border-brass);
+    }
+
+    .beilagen-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .beilage-card {
+      background: var(--bg-slate-navy);
+      border: 1px solid var(--border-brass);
+      padding: 20px;
+      border-radius: 3px;
+      text-align: center;
+    }
+    .beilage-card i {
+      font-size: 1.8rem;
+      color: var(--beer-gold);
+      margin-bottom: 10px;
+    }
+    .beilage-card h4 {
+      font-family: var(--font-fraunces);
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .beilage-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted-wood);
+      margin-bottom: 10px;
+    }
+    .beilage-card .b-price {
+      font-family: var(--font-fraunces);
+      font-weight: 700;
+      color: var(--beer-gold);
+      font-size: 1.1rem;
+    }
+
+    /* ==========================================================================
+       SPEZIALITÄTEN DES HAUSES
+       ========================================================================== */
+    .spezial-section {
+      padding: 90px 0;
+    }
+
+    .spezial-cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .spezial-box {
+      background: var(--bg-slate-navy);
+      border: 1px solid var(--border-brass);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-tavern);
+    }
+    .spezial-box img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .spezial-body {
+      padding: 24px;
+    }
+    .spezial-body h4 {
+      font-family: var(--font-fraunces);
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .spezial-body p {
+      font-size: 0.9rem;
+      color: var(--text-muted-wood);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .spezial-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-dark);
+      padding-top: 14px;
+    }
+    .spezial-price {
+      font-family: var(--font-fraunces);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--beer-gold);
+    }
+
+    /* ==========================================================================
+       RESERVIERUNG & KONTAKT
+       ========================================================================== */
+    .reservation-tavern-section {
+      padding: 90px 0;
+      background: #0f1c2d;
+    }
+
+    .tavern-res-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--bg-slate-navy);
+      border: 2px solid var(--amber-brass);
+      border-radius: 4px;
+      padding: 44px;
+    }
+
+    .t-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .t-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .t-field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--beer-gold);
+      text-transform: uppercase;
+    }
+    .t-field input, .t-field select, .t-field textarea {
+      background: #0c1522;
+      border: 1px solid var(--border-brass);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 2px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+    }
+
+    .tavern-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 90px 0;
+      align-items: center;
+    }
+
+    .contact-box-t {
+      background: var(--bg-slate-navy);
+      border: 1px solid var(--border-brass);
+      padding: 30px;
+      border-radius: 4px;
+    }
+    .contact-box-t h4 {
+      font-family: var(--font-fraunces);
+      font-size: 1.3rem;
+      color: var(--beer-gold);
+      margin-bottom: 16px;
+    }
+    .contact-box-t p {
+      margin-bottom: 12px;
+      color: var(--text-parchment);
+      line-height: 1.6;
+    }
+
+    .map-frame-t {
+      height: 380px;
+      border: 2px solid var(--amber-brass);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .map-frame-t iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: invert(90%) hue-rotate(180deg);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .tavern-footer {
+      background: #080d15;
+      border-top: 2px solid var(--amber-brass);
+      padding: 50px 0 24px 0;
+      text-align: center;
+      color: var(--text-muted-wood);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .beer-grid, .parchment-items-grid, .spezial-cards-3, .beilagen-grid {
+        grid-template-columns: 1fr;
+      }
+      .tavern-contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      .tavern-nav {
+        display: none;
+      }
+      .section-title {
+        font-size: 1.85rem;
+      }
+      .section-sub {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+      .hero-box h2 {
+        font-size: 2rem;
+        word-break: break-word;
+      }
+      .hero-box p {
+        font-size: 0.95rem;
+      }
+      .stamp-badge {
+        font-size: 0.75rem;
+        padding: 8px 14px;
+        text-align: center;
+        line-height: 1.4;
+      }
+      .beer-card {
+        padding: 20px 16px;
+      }
+      .beer-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .beer-prices {
+        text-align: left;
+        font-size: 1.1rem;
+        align-self: flex-start;
+      }
+      .gaststaette-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 0 16px 14px 16px;
+        margin: 0 -16px 24px -16px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .gaststaette-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .g-tab-btn {
+        flex-shrink: 0;
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+      .parchment-board {
+        padding: 20px 14px;
+      }
+      .parchment-header h3 {
+        font-size: 1.6rem;
+      }
+      .parchment-items-grid {
+        gap: 24px;
+      }
+      .p-item {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .p-item-thumb {
+        width: 100%;
+        height: 160px;
+      }
+      .p-item-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .p-item-title {
+        font-size: 1.1rem;
+      }
+      .p-item-price {
+        font-size: 1.2rem;
+      }
+      .beilagen-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .spezial-cards-3 {
+        grid-template-columns: 1fr;
+      }
+      .t-grid {
+        grid-template-columns: 1fr;
+      }
+      .tavern-res-card {
+        padding: 24px 16px;
+      }
+      .tavern-contact-grid {
+        grid-template-columns: 1fr;
+        padding: 60px 0;
+      }
+      .map-frame-t {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       GASTSTÄTTE HEADER
+       ======================================================================== -->
+  <header class="tavern-header">
+    <div class="container header-layout">
+      <div class="tavern-brand">
+        <div class="tavern-emblem">
+          <i class="fa-solid fa-beer-mug-empty"></i>
+        </div>
+        <div class="brand-title">
+          <h1>VIET SOUL GASTSTÄTTE</h1>
+          <span>Bremen • Waller Freihafen</span>
+        </div>
+      </div>
+
+      <ul class="tavern-nav">
+        <li><a href="#biere">Biere & Fass</a></li>
+        <li><a href="#speisekarte">Wirtshauskarte</a></li>
+        <li><a href="#beilagen">Beilagen</a></li>
+        <li><a href="#spezialitaeten">Spezialitäten</a></li>
+        <li><a href="#reservierung">Tisch reservieren</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+
+      <a href="#reservierung" class="btn-tavern" style="padding: 9px 18px; font-size: 0.85rem;">Tisch reservieren</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         HERO SECTION
+         ====================================================================== -->
+    <section class="hero-tavern">
+      <div class="container hero-box">
+        <span class="tavern-badge"><i class="fa-solid fa-award"></i> Bremer Gastlichkeit & Vietnamesische Küche</span>
+        <h2>Herzhafte Spezialitäten,<br>Frisches Bier & Reiner Genuss.</h2>
+        <p>
+          Willkommen in der Viet Soul Gaststätte am Waller Freihafen. Bei uns treffen frisch gezapfte deutsche Biere auf die legendären Nationalgerichte Vietnams und meisterhaftes Sushi.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a href="#speisekarte" class="btn-tavern">Zur Speisekarte</a>
+          <a href="#biere" class="btn-wood"><i class="fa-solid fa-beer-mug-empty"></i> Bierkarte ansehen</a>
+        </div>
+        <br>
+        <div class="stamp-badge">
+          <i class="fa-solid fa-certificate"></i> Täglich frisch zubereitet • Original Vietnamesische Hausmannskost
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: BIERE VOM FASS & FLASCHENBIERE
+         ========================================================================== -->
+    <section class="beer-section" id="biere">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="tavern-badge"><i class="fa-solid fa-beer-mug-empty"></i> Brauhaus Kultur</span>
+          <h2 class="section-title">Biere vom Fass & Flaschenbiere</h2>
+          <p class="section-sub">Kühl gezapftes Bremer Pils, bayerisches Weizenbier und authentisches Bier aus Saigon.</p>
+        </div>
+
+        <div class="beer-grid">
+          <!-- Fassbiere -->
+          <div class="beer-card">
+            <div class="beer-card-header">
+              <i class="fa-solid fa-faucet-drip"></i>
+              <div>
+                <h3>Frisch vom Fass</h3>
+                <small style="color: var(--text-muted-wood);">Gezapft bei perfekten 4-6 °C</small>
+              </div>
+            </div>
+
+            <div class="beer-list-item">
+              <div class="beer-info">
+                <h4>Beck's Pilsener (Original Bremen)</h4>
+                <p>Der herbe Klassiker direkt aus unserer Heimatstadt Bremen.</p>
+              </div>
+              <div class="beer-prices">
+                4,20 € <small>0,3l</small> • 5,80 € <small>0,5l</small>
+              </div>
+            </div>
+
+            <div class="beer-list-item">
+              <div class="beer-info">
+                <h4>Paulaner Hefe-Weißbier Naturtrüb</h4>
+                <p>Spritzig, fruchtig, mit feiner Hefe-Note aus München.</p>
+              </div>
+              <div class="beer-prices">
+                5,90 € <small>0,5l</small>
+              </div>
+            </div>
+
+            <div class="beer-list-item">
+              <div class="beer-info">
+                <h4>Haake-Beck Kräusen</h4>
+                <p>Bremer Spezialität, naturtrüb und unfiltriert süffig.</p>
+              </div>
+              <div class="beer-prices">
+                4,40 € <small>0,3l</small> • 5,90 € <small>0,5l</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flaschenbiere & Asiatische Biere -->
+          <div class="beer-card">
+            <div class="beer-card-header">
+              <i class="fa-solid fa-wine-bottle"></i>
+              <div>
+                <h3>Flaschenbiere & Asiatische Spezialitäten</h3>
+                <small style="color: var(--text-muted-wood);">Eiskalt serviert</small>
+              </div>
+            </div>
+
+            <div class="beer-list-item">
+              <div class="beer-info">
+                <h4>Bia Saigon Export (Vietnam)</h4>
+                <p>Das legendäre Reisbier aus Vietnam – mild, erfrischend und vollmundig.</p>
+              </div>
+              <div class="beer-prices">
+                4,50 € <small>0,33l Fl.</small>
+              </div>
+            </div>
+
+            <div class="beer-list-item">
+              <div class="beer-info">
+                <h4>Flensburger Pilsner</h4>
+                <p>Das herbe Bier mit dem bekannten Plop-Verschluss.</p>
+              </div>
+              <div class="beer-prices">
+                4,20 € <small>0,33l Fl.</small>
+              </div>
+            </div>
+
+            <div class="beer-list-item">
+              <div class="beer-info">
+                <h4>Beck's Blue (Alkoholfrei)</h4>
+                <p>Voller Biergeschmack ohne Alkohol für sichere Heimfahrt.</p>
+              </div>
+              <div class="beer-prices">
+                3,90 € <small>0,33l Fl.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         WIRTSHAUSKARTE (PARCHMENT SPEISEKARTE)
+         ====================================================================== -->
+    <section class="menu-gaststaette-section" id="speisekarte">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="tavern-badge"><i class="fa-solid fa-scroll"></i> Unsere Wirtshauskarte</span>
+          <h2 class="section-title">Speisekarte der Gaststätte</h2>
+          <p class="section-sub">Deftige Wok-Klassiker, dampfende Suppentöpfe und frisches Sushi.</p>
+        </div>
+
+        <div class="gaststaette-tabs">
+          <button class="g-tab-btn active" data-target="g-suppen">Phở & Bún Suppen</button>
+          <button class="g-tab-btn" data-target="g-grill">Grill & Wokpfannen</button>
+          <button class="g-tab-btn" data-target="g-curry">Curry & Reisgerichte</button>
+          <button class="g-tab-btn" data-target="g-sushi">Sushi & Rollen</button>
+          <button class="g-tab-btn" data-target="g-vorspeisen">Vorspeisen</button>
+        </div>
+
+        <!-- Board 1: Phở & Bún -->
+        <div class="g-menu-panel active" id="g-suppen">
+          <div class="parchment-board">
+            <div class="parchment-header">
+              <h3>Große Suppentöpfe & Reisnudeln</h3>
+              <p>Traditionell serviert in schwerer Steingutschale mit frischen Kräutern</p>
+            </div>
+            <div class="parchment-items-grid">
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/30.jpg" alt="Phở Bò"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">18C. Phở Bò Chín</span>
+                    <span class="p-item-price">14,50 €</span>
+                  </div>
+                  <p class="p-item-desc">Große Schale kräftige Rinderknochenbrühe, zart gekochte Rindfleischscheiben, breite Reisbandnudeln, Koriander und Frühlingszwiebeln.</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/30.jpg" alt="Phở Bò Áp Chảo"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">18D. Phở Bò Áp Chảo</span>
+                    <span class="p-item-price">16,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Mit kurz im heißen Wok angebratenem Rindersteak, Knoblauch und frischem Gemüse auf Reisbandnudelsuppe.</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/30.jpg" alt="Bún Bò Nam Bộ"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">19C. Bún Bò Nam Bộ</span>
+                    <span class="p-item-price">16,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Gebratenes Rindfleisch mit Zitronengras und Ananas auf Reisnudeln, buntem Salat, Erdnüssen und Röstzwiebeln.</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/30.jpg" alt="Bún Chả Cá"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">20. Bún Chả Cá Hải Phòng</span>
+                    <span class="p-item-price">17,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Küstenspezialität: Hausgemachte Fischfrikadellen mit Dill, Tomaten und Lauch in aromatischer Brühe.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board 2: Grill & Wok -->
+        <div class="g-menu-panel" id="g-grill">
+          <div class="parchment-board">
+            <div class="parchment-header">
+              <h3>Heiß vom Grill & aus dem Wok</h3>
+              <p>Zischend auf der Gusseisenplatte serviert</p>
+            </div>
+            <div class="parchment-items-grid">
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/20.jpg" alt="Bò Nướng"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">54. Bò Nướng Teriyaki</span>
+                    <span class="p-item-price">19,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Saftig gegrillte Rindersteaks mit Gemüse, Teriyaki-Sauce und knusprigen Süßkartoffelpommes.</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/20.jpg" alt="Tôm Nướng"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">53. Tôm Nướng Grill</span>
+                    <span class="p-item-price">18,50 €</span>
+                  </div>
+                  <p class="p-item-desc">Gegrillte Großgarnelen mit Schale, serviert mit Salat und feiner Würzsauce.</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/29.jpg" alt="Gebratene Nudeln"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">33. Gebratene Woknudeln</span>
+                    <span class="p-item-price">15,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Mit Ei, Lauch, Sojasprossen, Röstzwiebeln und knuspriger Hähnchenbrust.</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/29.jpg" alt="Gebratener Reis"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">30. Gebratener Duftreis</span>
+                    <span class="p-item-price">16,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Gebratener Jasminreis mit Ei, Gemüse, Röstzwiebeln und knuspriger Ente kross.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board 3: Curry & Reis -->
+        <div class="g-menu-panel" id="g-curry">
+          <div class="parchment-board">
+            <div class="parchment-header">
+              <h3>Deftige Currys & Reisgerichte</h3>
+              <p>Sahnig, würzig und sättigend mit Duftreis serviert</p>
+            </div>
+            <div class="parchment-items-grid">
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/24.jpg" alt="Erdnuss Curry"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">24F. Erdnuss-Curry Ente</span>
+                    <span class="p-item-price">16,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Krosse Ente auf würziger Erdnuss-Kokos-Sauce mit Röstzwiebeln, Paprika und Duftreis.</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/24.jpg" alt="Süßkartoffel Curry"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">25D. Süßkartoffel Curry Huhn</span>
+                    <span class="p-item-price">15,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Goldenes Kokos-Curry mit Süßkartoffeln, knusprigem Hähnchenbrustfilet und Jasminreis.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board 4: Sushi -->
+        <div class="g-menu-panel" id="g-sushi">
+          <div class="parchment-board">
+            <div class="parchment-header">
+              <h3>Sushi Handwerk</h3>
+              <p>Frischeste Rollen und Sets direkt an den Tisch gebracht</p>
+            </div>
+            <div class="parchment-items-grid">
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/1.jpg" alt="Sushi Set 6"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">Sushi Set 6</span>
+                    <span class="p-item-price">21,00 €</span>
+                  </div>
+                  <p class="p-item-desc">6 Stk. Sake Maki, 10 Stk. Crunchy Salmon, 3 Stk. Nigiri (Lachs, Thunfisch, Garnele).</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/5.jpg" alt="Tiger Roll"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">S72. Tiger Roll (8 Stk.)</span>
+                    <span class="p-item-price">15,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Panierte Garnele, Mango, Frischkäse, umhüllt mit flambiertem Lachs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board 5: Vorspeisen -->
+        <div class="g-menu-panel" id="g-vorspeisen">
+          <div class="parchment-board">
+            <div class="parchment-header">
+              <h3>Kleine Happen zum Bier</h3>
+              <p>Knuspriges Fingerfood und wärmende Suppen</p>
+            </div>
+            <div class="parchment-items-grid">
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/27.jpg" alt="Nem Sài Gòn"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">2. Nem Sài Gòn (Warm)</span>
+                    <span class="p-item-price">6,50 €</span>
+                  </div>
+                  <p class="p-item-desc">2 krosse Frühlingsrollen mit Hackfleisch, Glasnudeln und Chili-Dip.</p>
+                </div>
+              </div>
+
+              <div class="p-item">
+                <div class="p-item-thumb"><img src="menu/27.jpg" alt="Wantan Chiên"></div>
+                <div class="p-item-content">
+                  <div class="p-item-title-row">
+                    <span class="p-item-title">5. Wantan Chiên (5 Stk.)</span>
+                    <span class="p-item-price">7,00 €</span>
+                  </div>
+                  <p class="p-item-desc">Knusprig gebackene Teigtaschen gefüllt mit Hähnchenfleisch.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: BEILAGEN (GERMAN GASTSTÄTTE STYLE)
+         ====================================================================== -->
+    <section class="beilagen-section" id="beilagen">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 30px;">
+          <span class="tavern-badge"><i class="fa-solid fa-plus"></i> Extra Genuss</span>
+          <h2 class="section-title" style="margin-bottom: 6px;">Wirtshaus-Beilagen</h2>
+          <p class="section-sub" style="margin-bottom: 20px;">Die perfekte Ergänzung zu jedem Hauptgericht.</p>
+        </div>
+
+        <div class="beilagen-grid">
+          <div class="beilage-card">
+            <i class="fa-solid fa-french-fries"></i>
+            <h4>Süßkartoffelpommes</h4>
+            <p>Goldgelb kross frittiert mit Limetten-Mayonnaise.</p>
+            <span class="b-price">4,90 €</span>
+          </div>
+
+          <div class="beilage-card">
+            <i class="fa-solid fa-bowl-rice"></i>
+            <h4>Portion Duftreis</h4>
+            <p>Dämpfend heißer Jasminreis mit Sesam.</p>
+            <span class="b-price">3,00 €</span>
+          </div>
+
+          <div class="beilage-card">
+            <i class="fa-solid fa-plate-wheat"></i>
+            <h4>Gebratene Nudeln</h4>
+            <p>Eiernudeln mit Sojasprossen und Röstzwiebeln.</p>
+            <span class="b-price">4,50 €</span>
+          </div>
+
+          <div class="beilage-card">
+            <i class="fa-solid fa-carrot"></i>
+            <h4>Gedämpftes Gemüse</h4>
+            <p>Knackiges Marktgemüse mit feiner Sojasauce.</p>
+            <span class="b-price">4,50 €</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SPEZIALITÄTEN DES HAUSES
+         ====================================================================== -->
+    <section class="spezial-section" id="spezialitaeten">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="tavern-badge"><i class="fa-solid fa-fire"></i> Aus dem Wirtshaustopf</span>
+          <h2 class="section-title">Unsere Spezialitäten des Hauses</h2>
+          <p class="section-sub">Traditionelle Fondues und kaiserliche Platten für den ganzen Tisch.</p>
+        </div>
+
+        <div class="spezial-cards-3">
+          <div class="spezial-box">
+            <img src="menu/16.jpg" alt="Lẩu Hotpot">
+            <div class="spezial-body">
+              <h4>41. Lẩu Bò Rinder-Feuertopf</h4>
+              <p>Vietnamesisches Fondue mit kräftiger Rinderbrühe, Rindfleisch, Rindbällchen, frischem Gemüse und Nudeln am Tisch brodelnd serviert.</p>
+              <div class="spezial-foot">
+                <span class="spezial-price">28,00 €</span>
+                <a href="#reservierung" class="btn-tavern" style="padding: 6px 14px; font-size: 0.8rem;">Für 2 Pers.</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="spezial-box">
+            <img src="menu/16.jpg" alt="Lẩu Thập Cẩm">
+            <div class="spezial-body">
+              <h4>43. Lẩu Thập Cẩm Deluxetopf</h4>
+              <p>Reichhaltiges Fondue mit Rindfleisch, Meeresfrüchten, Bio-Tofu, Dumplings und Saisongemüse.</p>
+              <div class="spezial-foot">
+                <span class="spezial-price">30,00 €</span>
+                <a href="#reservierung" class="btn-tavern" style="padding: 6px 14px; font-size: 0.8rem;">Empfehlung</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="spezial-box">
+            <img src="menu/8.jpg" alt="Sushi Schiff">
+            <div class="spezial-body">
+              <h4>Set 14. Meisterplatte (50 Stk.)</h4>
+              <p>Crunchy Salmon, Sake Tempura, Tiger Roll, Nigiri und frisches Lachs-Sashimi.</p>
+              <div class="spezial-foot">
+                <span class="spezial-price">55,00 €</span>
+                <a href="#reservierung" class="btn-tavern" style="padding: 6px 14px; font-size: 0.8rem;">Zum Teilen</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TISCHRESERVIERUNG
+         ====================================================================== -->
+    <section class="reservation-tavern-section" id="reservierung">
+      <div class="container">
+        <div class="tavern-res-card">
+          <div style="text-align: center;">
+            <span class="tavern-badge"><i class="fa-solid fa-calendar-check"></i> Gastfreundschaft</span>
+            <h2 class="section-title">Einen Tisch reservieren</h2>
+            <p style="color: var(--text-muted-wood);">Reservieren Sie Ihren Platz in unserer urig-gemütlichen Gaststätte.</p>
+          </div>
+
+          <form onsubmit="event.preventDefault(); alert('Vielen Dank! Wir haben Ihre Reservierungsanfrage erhalten und melden uns kurzfristig.');">
+            <div class="t-grid">
+              <div class="t-field">
+                <label>Ihr Vor- und Nachname</label>
+                <input type="text" placeholder="z. B. Klaus Hoffmann" required>
+              </div>
+              <div class="t-field">
+                <label>Telefonnummer (für Rückfragen)</label>
+                <input type="tel" placeholder="+49 421 1234567" required>
+              </div>
+              <div class="t-field">
+                <label>Personenanzahl</label>
+                <select>
+                  <option>2 Personen</option>
+                  <option>4 Personen (Stammtisch)</option>
+                  <option>6 Personen</option>
+                  <option>8+ Personen (Große Runde)</option>
+                </select>
+              </div>
+              <div class="t-field">
+                <label>Datum & Uhrzeit</label>
+                <input type="text" placeholder="z. B. Morgen, 18:30 Uhr" required>
+              </div>
+              <div class="t-field" style="grid-column: span 2;">
+                <label>Sonderwünsche (z. B. Kinderstuhl, Hotpot vorbestellen)</label>
+                <textarea rows="2" placeholder="Ihre Nachricht an die Gaststätte..."></textarea>
+              </div>
+              <div style="grid-column: span 2; text-align: center; margin-top: 10px;">
+                <button type="submit" class="btn-tavern" style="width: 100%;">Tisch verbindlich vormerken</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         KONTAKT
+         ====================================================================== -->
+    <section class="container tavern-contact-grid" id="kontakt">
+      <div class="contact-box-t">
+        <h4>Viet Soul Gaststätte & Wirtshaus</h4>
+        <p><i class="fa-solid fa-location-dot" style="color: var(--beer-gold); margin-right: 8px;"></i> <strong>Adresse:</strong> Am Waller Freihafen 1, 28217 Bremen</p>
+        <p><i class="fa-solid fa-phone" style="color: var(--beer-gold); margin-right: 8px;"></i> <strong>Telefon:</strong> 0421 79 30 180 • Mobil: 0176 87309247</p>
+        <p><i class="fa-solid fa-clock" style="color: var(--beer-gold); margin-right: 8px;"></i> <strong>Öffnungszeiten:</strong><br>Montag – Freitag: 11:30 – 15:00 & 17:30 – 22:30 Uhr<br>Samstag, Sonntag: 12:00 – 23:00 Uhr durchgehend</p>
+        <p><i class="fa-solid fa-square-parking" style="color: var(--beer-gold); margin-right: 8px;"></i> Ausreichend Parkplätze direkt vor dem Gasthaus vorhanden.</p>
+      </div>
+
+      <div class="map-frame-t">
+        <iframe 
+          title="Standort Bremen"
+          src="https://maps.google.com/maps?q=Am%20Waller%20Freihafen%201,%2028217%20Bremen&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="tavern-footer">
+    <div class="container">
+      <p>&copy; 2026 Viet Soul Gaststätte Bremen (Viet Gastro Bremen). Alle Rechte vorbehalten.</p>
+      <p style="margin-top: 6px; font-size: 0.8rem;">Am Waller Freihafen 1, 28217 Bremen • Impressum • Datenschutz • Allergenauszeichnung nach EU LMIV</p>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching for Parchment boards
+    const gTabs = document.querySelectorAll('.g-tab-btn');
+    const gPanels = document.querySelectorAll('.g-menu-panel');
+
+    gTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        gTabs.forEach(t => t.classList.remove('active'));
+        gPanels.forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        const target = document.getElementById(tab.getAttribute('data-target'));
+        if (target) target.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
